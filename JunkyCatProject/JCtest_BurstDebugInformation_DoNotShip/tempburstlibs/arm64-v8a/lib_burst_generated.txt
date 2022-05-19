@@ -141,8 +141,8 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
---root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --assembly-folder=C:\Users\tutka\JunkyCat\JunkyCatProject\Temp\StagingArea\Data\Managed\
