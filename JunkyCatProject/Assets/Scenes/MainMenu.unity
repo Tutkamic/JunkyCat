@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HIGH SCORES
+  m_text: HIGH SCORE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6cb009a3ff60dc4ca83152cefc1ce0e, type: 2}
   m_sharedMaterial: {fileID: -6834388886350528339, guid: d6cb009a3ff60dc4ca83152cefc1ce0e,
