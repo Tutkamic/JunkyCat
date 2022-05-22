@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 4ce3ee77c86e9d64aa2c6ade7e9f79fe
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -6944720968013344929
+    second: Armature|Trawa1
   externalObjects: {}
   materials:
     materialImportMode: 2

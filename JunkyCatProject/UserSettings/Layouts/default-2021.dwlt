@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1237
+    x: 876
     y: 0
-    width: 725
+    width: 1086
     height: 774
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 32
+  controlID: 18
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 30
+  controlID: 16
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 31
+  controlID: 17
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,7 +318,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1237
+    width: 876
     height: 774
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -445,9 +445,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1237
+    x: 876
     y: 73
-    width: 723
+    width: 1084
     height: 753
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -477,8 +477,8 @@ MonoBehaviour:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 29
-    fitToScreenEnabled: 1
+    scale: 30
+    fitToScreenEnabled: 0
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
     friendlyName: Xiaomi Redmi Note 7
@@ -526,7 +526,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Textures
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b4bb0000
     m_LastClickedID: 48052
-    m_ExpandedIDs: 000000004c6800004e68000050680000526800005468000056680000586800005a6800005c6800005e680000
+    m_ExpandedIDs: 000000004e68000050680000526800005468000056680000586800005a6800005c6800005e680000606800006268000064680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -566,10 +566,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 510}
+    scrollPos: {x: 0, y: 720}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 5086ffffffffffff000000004c6800004e68000050680000526800005468000056680000586800005a6800005c6800005e68000098680000ce680000
+    m_ExpandedIDs: 0a9ffbffffffffff000000004e68000050680000526800005468000056680000586800005a6800005c6800005e680000606800006268000064680000a868000022990000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -699,9 +699,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 889b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 225df6ff045ef6ffb065f6ff5469f6ff5e69f6ff0c82f6ffee82f6ff488cf6fff08ff6fffe8ff6ff8695f6ffb0c8f6ff66e9f6ffe489f7ff4633f8ff36aefbffc4f8feffccfbfeff54e6ffff34fbffff3666000048660000f46b0000fe6b0000e47700005aa70000b2b50000bcb50000a6c40000b6c40000
+      m_ExpandedIDs: c816f9ffe019f9ffc21af9ff6e22f9ff6028f9ff6e28f9ff182ef9ff9e4dfaffcc51faffae52faff005cfaffee61fafff861faff5669faff8073faff7a10fcfff411fcff2824fdff6e34fdff105dfdff2c46feff62e5feff82eafefff4e6fffffaefffff34fbffffc06e0000047100001892000028920000b89a0000d09a0000b29c000078af0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -748,7 +748,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 1236
+    width: 875
     height: 753
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -951,9 +951,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 24.726088, y: 23.69866, z: 10.989537}
+    m_Target: {x: 412.77966, y: 1993.258, z: -50.838226}
     speed: 2
-    m_Value: {x: 24.726088, y: 23.69866, z: 10.989537}
+    m_Value: {x: 412.77966, y: 1993.258, z: -50.838226}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1000,13 +1000,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.25900742, y: 0.34649757, z: -0.10016191, w: 0.89600736}
+    m_Target: {x: -0.01857409, y: 0.053963013, z: 0.0010034016, w: 0.9983848}
     speed: 2
-    m_Value: {x: 0.25900653, y: 0.34649637, z: -0.10016157, w: 0.89600426}
+    m_Value: {x: -0.018576737, y: 0.050966855, z: 0.0009476606, w: 0.9985271}
   m_Size:
-    m_Target: 21.266771
+    m_Target: 158.57443
     speed: 2
-    m_Value: 21.266771
+    m_Value: 158.57443
   m_Ortho:
     m_Target: 0
     speed: 2

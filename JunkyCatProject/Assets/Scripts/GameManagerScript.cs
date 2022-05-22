@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance { get; private set; }
+    public string playerName;
+    public Texture playerMaterialTexture;
 
     private void Awake()
     {
@@ -18,4 +20,5 @@ public class GameManagerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
