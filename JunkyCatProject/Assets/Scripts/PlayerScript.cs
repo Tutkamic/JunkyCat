@@ -32,11 +32,14 @@ public class PlayerScript : MonoBehaviour
     {
         if(joystick != null)
         {
+            gameObject.GetComponent<Animator>().SetBool("isRunning", true);
             playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
 
             if (joystick.Horizontal != 0 || joystick.Vertical != 0)
             {
                 transform.rotation = Quaternion.LookRotation(playerRigidBody.velocity * (-1));
+                if (transform.rotation.y < 0.95f)
+                    transform.Rotate(0f, 0f, 0.95f);
             }
         }
 
