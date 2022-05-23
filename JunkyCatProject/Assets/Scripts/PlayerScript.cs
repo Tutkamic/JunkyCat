@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     public Material catMaterial;
     public Texture defaultTexture;
 
+    public bool isDead = false;
+
     [SerializeField] private Rigidbody playerRigidBody;
     private Joystick joystick;
     [SerializeField] private float moveSpeed;
@@ -30,7 +32,7 @@ public class PlayerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(joystick != null)
+        if(joystick != null && isDead == false)
         {
             gameObject.GetComponent<Animator>().SetBool("isRunning", true);
             playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
@@ -42,7 +44,15 @@ public class PlayerScript : MonoBehaviour
                     transform.Rotate(0f, 0f, 0.95f);
             }
         }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Enemy")
+        {
+            gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            isDead = true;
+        }
     }
 
 }

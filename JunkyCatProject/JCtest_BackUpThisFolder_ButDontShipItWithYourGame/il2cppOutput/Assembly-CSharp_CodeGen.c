@@ -126,51 +126,53 @@ extern void PlayerScript_Start_m0290AFEEFA15E6EF748CB2003346C933C5F65C7E (void);
 extern void PlayerScript_Update_m4D494E3B0D30EA109D7BCFFF6C40085D429E68B0 (void);
 // 0x00000039 System.Void PlayerScript::FixedUpdate()
 extern void PlayerScript_FixedUpdate_m16A4F78041007E5FF2D7D2C8E9309DE824ABE451 (void);
-// 0x0000003A System.Void PlayerScript::.ctor()
+// 0x0000003A System.Void PlayerScript::OnCollisionEnter(UnityEngine.Collision)
+extern void PlayerScript_OnCollisionEnter_m554C3F4479E4EF64433E46DD106FADC352E1EDC3 (void);
+// 0x0000003B System.Void PlayerScript::.ctor()
 extern void PlayerScript__ctor_m204704D8E019627DDF740B7E8B5F9B579CA4FF57 (void);
-// 0x0000003B System.Void SceneManagerScript::StartButton()
+// 0x0000003C System.Void SceneManagerScript::StartButton()
 extern void SceneManagerScript_StartButton_mD5C5D9F34C6B2750B56D702C72AB542995429DD3 (void);
-// 0x0000003C System.Void SceneManagerScript::HighScoresButton()
+// 0x0000003D System.Void SceneManagerScript::HighScoresButton()
 extern void SceneManagerScript_HighScoresButton_m8138A35A77300187925D74A493578D9F2C1B27E9 (void);
-// 0x0000003D System.Void SceneManagerScript::ExitButton()
+// 0x0000003E System.Void SceneManagerScript::ExitButton()
 extern void SceneManagerScript_ExitButton_mE22797152BD59B99E921633891DAD0FF16F00357 (void);
-// 0x0000003E System.Void SceneManagerScript::MainMenuButton()
+// 0x0000003F System.Void SceneManagerScript::MainMenuButton()
 extern void SceneManagerScript_MainMenuButton_m6F2CD3EA30A761C92ACF0C4720DEFC80FC6A4430 (void);
-// 0x0000003F System.Void SceneManagerScript::GoButton()
+// 0x00000040 System.Void SceneManagerScript::GoButton()
 extern void SceneManagerScript_GoButton_m10CD9C8E01A84587617F03B17F2E1AB49B372BD8 (void);
-// 0x00000040 System.Void SceneManagerScript::ManualScreen1()
+// 0x00000041 System.Void SceneManagerScript::ManualScreen1()
 extern void SceneManagerScript_ManualScreen1_mE8807A4F9A72442DBE4EF3E4986E66FAE6E40A4E (void);
-// 0x00000041 System.Void SceneManagerScript::ManualScreen2()
+// 0x00000042 System.Void SceneManagerScript::ManualScreen2()
 extern void SceneManagerScript_ManualScreen2_m659BD3023998BC1F7A7ED3C67577A56B314A6685 (void);
-// 0x00000042 System.Void SceneManagerScript::ManualScreen3()
+// 0x00000043 System.Void SceneManagerScript::ManualScreen3()
 extern void SceneManagerScript_ManualScreen3_mAC6CAAE6886BB3B7CE7C139B2335759A0048ED5D (void);
-// 0x00000043 System.Void SceneManagerScript::Color1()
+// 0x00000044 System.Void SceneManagerScript::Color1()
 extern void SceneManagerScript_Color1_m5B7D7FCDA5DBBE8BCBD7781B488BFDBC1753AA98 (void);
-// 0x00000044 System.Void SceneManagerScript::Color2()
+// 0x00000045 System.Void SceneManagerScript::Color2()
 extern void SceneManagerScript_Color2_m4876DCE5BD7EC1D4973C2D88D997978CB5B43BE4 (void);
-// 0x00000045 System.Void SceneManagerScript::Color3()
+// 0x00000046 System.Void SceneManagerScript::Color3()
 extern void SceneManagerScript_Color3_m886EBB48F420125D0AF4B6F42D6F84DB56B8E9E1 (void);
-// 0x00000046 System.Void SceneManagerScript::Color4()
+// 0x00000047 System.Void SceneManagerScript::Color4()
 extern void SceneManagerScript_Color4_m7CFD53ACADDB49058283219496249DCDC1F23A51 (void);
-// 0x00000047 System.Void SceneManagerScript::Color5()
+// 0x00000048 System.Void SceneManagerScript::Color5()
 extern void SceneManagerScript_Color5_m51CE2B59FD4365DC23D0A90D6A6D1AED673BF631 (void);
-// 0x00000048 System.Void SceneManagerScript::Color6()
+// 0x00000049 System.Void SceneManagerScript::Color6()
 extern void SceneManagerScript_Color6_mEE41A78B25D9CC1D3BDCBC4DD65F7BF92E72070C (void);
-// 0x00000049 System.Void SceneManagerScript::PlayerChnages(System.Int32,System.String)
+// 0x0000004A System.Void SceneManagerScript::PlayerChnages(System.Int32,System.String)
 extern void SceneManagerScript_PlayerChnages_mAFCF4E5FA824B091E08232A268C5FCBFB54436DC (void);
-// 0x0000004A System.Void SceneManagerScript::ButtonStateChange(System.Int32)
+// 0x0000004B System.Void SceneManagerScript::ButtonStateChange(System.Int32)
 extern void SceneManagerScript_ButtonStateChange_m76E5DECD8995BA73DE984A93E90423B05E832817 (void);
-// 0x0000004B System.Void SceneManagerScript::PlayerNameText(System.String)
+// 0x0000004C System.Void SceneManagerScript::PlayerNameText(System.String)
 extern void SceneManagerScript_PlayerNameText_mB1FB63D0461029BF668CA2B297A85603E2E27A60 (void);
-// 0x0000004C System.Void SceneManagerScript::PlayerMaterialTexture(UnityEngine.Texture)
+// 0x0000004D System.Void SceneManagerScript::PlayerMaterialTexture(UnityEngine.Texture)
 extern void SceneManagerScript_PlayerMaterialTexture_m7102AB315D6931FD9353F4C07527753B7F62528D (void);
-// 0x0000004D System.Void SceneManagerScript::.ctor()
+// 0x0000004E System.Void SceneManagerScript::.ctor()
 extern void SceneManagerScript__ctor_m4C35A923D9A7F759C33AF42ABC384E7BF8DA3E7A (void);
-// 0x0000004E System.Void Readme::.ctor()
+// 0x0000004F System.Void Readme::.ctor()
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
-// 0x0000004F System.Void Readme/Section::.ctor()
+// 0x00000050 System.Void Readme/Section::.ctor()
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
-static Il2CppMethodPointer s_methodPointers[79] = 
+static Il2CppMethodPointer s_methodPointers[80] = 
 {
 	JoystickPlayerExample_FixedUpdate_m9AEDBA111F95D67A006A5D3821956048224541B7,
 	JoystickPlayerExample__ctor_m702422E0AE29402330CF41FDDBEE76F0506342E2,
@@ -229,6 +231,7 @@ static Il2CppMethodPointer s_methodPointers[79] =
 	PlayerScript_Start_m0290AFEEFA15E6EF748CB2003346C933C5F65C7E,
 	PlayerScript_Update_m4D494E3B0D30EA109D7BCFFF6C40085D429E68B0,
 	PlayerScript_FixedUpdate_m16A4F78041007E5FF2D7D2C8E9309DE824ABE451,
+	PlayerScript_OnCollisionEnter_m554C3F4479E4EF64433E46DD106FADC352E1EDC3,
 	PlayerScript__ctor_m204704D8E019627DDF740B7E8B5F9B579CA4FF57,
 	SceneManagerScript_StartButton_mD5C5D9F34C6B2750B56D702C72AB542995429DD3,
 	SceneManagerScript_HighScoresButton_m8138A35A77300187925D74A493578D9F2C1B27E9,
@@ -252,7 +255,7 @@ static Il2CppMethodPointer s_methodPointers[79] =
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
 };
-static const int32_t s_InvokerIndices[79] = 
+static const int32_t s_InvokerIndices[80] = 
 {
 	5399,
 	5399,
@@ -311,6 +314,7 @@ static const int32_t s_InvokerIndices[79] =
 	5399,
 	5399,
 	5399,
+	4296,
 	5399,
 	5399,
 	5399,
@@ -338,7 +342,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	79,
+	80,
 	s_methodPointers,
 	0,
 	NULL,

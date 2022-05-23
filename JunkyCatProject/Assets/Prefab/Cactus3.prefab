@@ -1010,7 +1010,7 @@ GameObject:
   - component: {fileID: 3025369973361852009}
   m_Layer: 0
   m_Name: Cactus3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1024,7 +1024,7 @@ Transform:
   m_GameObject: {fileID: 4471885031088665995}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0.895, y: 0.001962406, z: -0.16421509}
-  m_LocalScale: {x: 30.000002, y: 30.000002, z: 30.000002}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1298031836631386946}
@@ -1115,10 +1115,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0063212053
+  m_Radius: 0.005854721
   m_Height: 0.020895414
   m_Direction: 2
-  m_Center: {x: 0.0000041306016, y: -0.0003549079, z: 0.010428096}
+  m_Center: {x: -0.0004623532, y: -0.00035490788, z: 0.010428098}
 --- !u!1 &4492951978763815509
 GameObject:
   m_ObjectHideFlags: 0
