@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     private Joystick joystick;
     [SerializeField] private float moveSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,25 +34,27 @@ public class PlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
         if(joystick != null && isDead == false)
-        {
-            gameObject.GetComponent<Animator>().SetBool("isRunning", true);
-            playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
-
-            if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            if (joystick.Horizontal > 0.1f || joystick.Vertical > 0.1f || joystick.Horizontal < -0.1f || joystick.Vertical < -0.1f)
             {
-                transform.rotation = Quaternion.LookRotation(playerRigidBody.velocity * (-1));
-                if (transform.rotation.y < 0.95f)
-                    transform.Rotate(0f, 0f, 0.95f);
-            }
-        }
+                gameObject.GetComponent<Animator>().SetBool("isRunning", true);
+                playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
+                float angle = Mathf.Atan2(joystick.Horizontal,joystick.Vertical) * Mathf.Rad2Deg;
+
+                if (angle > -45 && angle < 45)
+                    transform.rotation = Quaternion.Euler(0f, angle + 180, 0f);
+                else
+                    transform.rotation = Quaternion.Euler(0f, 180, 0f);
+                }
+        else
+                transform.rotation = Quaternion.Euler(0f, 180, 0f);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Enemy")
         {
-            gameObject.GetComponent<Animator>().SetBool("isDead", true);
-            isDead = true;
+           // gameObject.GetComponent<Animator>().SetBool("isDead", true);
+          //  isDead = true;
         }
     }
 
