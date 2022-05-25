@@ -8,7 +8,7 @@ public class MapManagerScript : MonoBehaviour
     public GameObject[] mapMiddle;
     public GameObject[] mapHard;
 
-    public float mapSpeed = 1f;
+    public static float mapSpeed = 1f;
     private Vector3 spawnMapPosition;
 
     // Start is called before the first frame update

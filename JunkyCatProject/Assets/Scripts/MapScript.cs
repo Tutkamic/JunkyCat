@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapScript : MonoBehaviour
 {
-    public float mapSpeed = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class MapScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += new Vector3(0f, 0f, -mapSpeed) * Time.deltaTime;
+        transform.position += new Vector3(0f, 0f, -(MapManagerScript.mapSpeed)) * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
