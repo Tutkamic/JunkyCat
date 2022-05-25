@@ -19,8 +19,6 @@ public class SceneManagerScript : MonoBehaviour
 
     public GameObject[] manualScreen;
 
-    private bool next = false;
-
     public void StartButton()
     {
         SceneManager.LoadScene(1);
