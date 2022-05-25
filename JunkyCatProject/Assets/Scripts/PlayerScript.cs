@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    private MapManagerScript mapManagerScript;
+
     public Material catMaterial;
     public Texture defaultTexture;
 
@@ -23,6 +25,7 @@ public class PlayerScript : MonoBehaviour
             catMaterial.SetTexture("_BaseMap", defaultTexture);
 
         joystick = FindObjectOfType<Joystick>();
+        mapManagerScript = FindObjectOfType<MapManagerScript>();
     }
 
     // Update is called once per frame
@@ -66,6 +69,7 @@ public class PlayerScript : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("isDead", true);
             isDead = true;
+            mapManagerScript.mapSpeed = 0;
         }
     }
 

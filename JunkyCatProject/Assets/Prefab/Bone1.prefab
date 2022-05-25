@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2923613869988281851}
   - component: {fileID: 2250982629098746462}
   - component: {fileID: 4096568735829165716}
+  - component: {fileID: 9174758743954353877}
   - component: {fileID: 6271289107423942819}
   m_Layer: 0
   m_Name: Bone1
@@ -171,6 +172,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &9174758743954353877
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583117850428188481}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &6271289107423942819
 BoxCollider:
   m_ObjectHideFlags: 0
