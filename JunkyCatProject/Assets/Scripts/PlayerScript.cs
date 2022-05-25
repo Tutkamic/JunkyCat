@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+    public delegate void PlayerDied();
+    public static event PlayerDied CatDied;
+
     [SerializeField] SliderScript sliderScript;
 
     public Material catMaterial;
@@ -49,7 +52,8 @@ public class PlayerScript : MonoBehaviour
     {
         health = maxHealth;
         energy = maxEnergy;
-        life = maxLife;
+        life = 4;
+        sliderScript.SetSliderValue(sliderScript.LifeSlider, 4);
     }
 
     // Update is called once per frame
@@ -102,20 +106,36 @@ public class PlayerScript : MonoBehaviour
         {
             // gameObject.GetComponent<Animator>().SetBool("isDead", true);
             //    isDead = true;
-            life -= 1;
-            sliderScript.SetSliderValue(sliderScript.LifeSlider, life);
+            if (life > 0)
+            {
+                life -= 1;
+                sliderScript.SetSliderValue(sliderScript.LifeSlider, life);
+            }
+            else
+            {
+                CatDied();
+            }
+
         }
     }
 
     IEnumerator EnergyOverTime()
     {
-        yield return new WaitForSeconds(5);
-        energy -= 10;
+        while(energy > 0)
+        {
+            yield return new WaitForSeconds(5);
+            energy -= 10;
+            sliderScript.SetSliderValue(sliderScript.EnergySlider, energy);
+        }
     }
     IEnumerator HealthOverTime()
     {
-        yield return new WaitForSeconds(5);
-        health -= 10;
+        while (health > 0)
+        {
+            yield return new WaitForSeconds(5);
+            health -= 10;
+            sliderScript.SetSliderValue(sliderScript.HealthSlider, health);
+        }
     }
 
 }
