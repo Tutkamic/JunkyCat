@@ -44,8 +44,20 @@ public class PlayerScript : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("isRunning", true);
                 playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
                 float angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, angle + 180, 0f);
+
+                if(angle > (-30) && angle < 30)
+                    transform.rotation = Quaternion.Euler(0f, angle + 180, 0f);
+                else if (angle <= (-30) && angle > (-150))
+                    transform.rotation = Quaternion.Euler(0f, (-30) + 180, 0f);
+                else if (angle <= (-150))
+                    transform.rotation = Quaternion.Euler(0f, (-(angle + 180)) + 180, 0f);
+                else if (angle >= 30 && angle < 150)
+                    transform.rotation = Quaternion.Euler(0f, 30 + 180, 0f);
+                else if (angle >= 150)
+                    transform.rotation = Quaternion.Euler(0f, (-(angle - 180)) + 180, 0f);
             }
+        else
+                transform.rotation = Quaternion.Euler(0f, 180, 0f);
     }
 
     private void OnCollisionEnter(Collision collision)
