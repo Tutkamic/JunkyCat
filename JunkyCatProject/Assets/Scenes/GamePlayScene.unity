@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 474718572}
   - component: {fileID: 474718571}
   - component: {fileID: 474718570}
+  - component: {fileID: 474718573}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -589,6 +590,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474718568}
   m_CullTransparentMesh: 1
+--- !u!114 &474718573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474718568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a935f5fa4544934fb80f1a30f8134a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &477727411
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,12 +975,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &640226792 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4006507415305480758, guid: f8faf31e332df2e4f9da043830bfabee,
-    type: 3}
-  m_PrefabInstance: {fileID: 765964242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &765964242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,6 +1843,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2100607004}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1520480873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100607004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1682980260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,8 +1885,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapEasy:
-  - {fileID: 6725091891813880414}
-  - {fileID: 640226792}
+  - {fileID: 7360340634281501692, guid: b8a5fbb32a513d046a198d7c1f2655af, type: 3}
+  - {fileID: 4006507415305480758, guid: f8faf31e332df2e4f9da043830bfabee, type: 3}
   mapMiddle: []
   mapHard: []
 --- !u!4 &1682980262
@@ -2333,12 +2353,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a5fbb32a513d046a198d7c1f2655af, type: 3}
---- !u!1 &6725091891813880414 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7360340634281501692, guid: b8a5fbb32a513d046a198d7c1f2655af,
-    type: 3}
-  m_PrefabInstance: {fileID: 4283342978444292514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6879707759133745380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2406,6 +2420,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 3655856706869824916, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1520480873}
     - target: {fileID: 3655856706869824916, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
       propertyPath: moveSpeed

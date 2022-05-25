@@ -113,7 +113,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                CatDied();
+             //   CatDied();
             }
 
         }
