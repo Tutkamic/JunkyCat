@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public static event PlayerDied CatDied;
 
     [SerializeField] SliderScript sliderScript;
+    [SerializeField] CameraScript cameraScript;
+
 
     public Material catMaterial;
     public Texture defaultTexture;
@@ -22,12 +24,21 @@ public class PlayerScript : MonoBehaviour
     public int energy;
     public int life;
 
+    public int kocimietkaAdd = 20;
+    public int energyLossOverTime = 5;
+    public int healthLossOverTime = 5;
+
+    public int healthAndEnergyTime = 1;
+
     [SerializeField] private Rigidbody playerRigidBody;
     [SerializeField] Joystick joystick;
-    [SerializeField] private float moveSpeed;
-    private float moveTreshold = 0.1f;
 
-    Vector3 catDirection;
+    [SerializeField] private float catMoveSpeed;
+    public float catAndCamMoveSpeed;
+    public float catConstantSpeed;
+
+
+    Vector3 catVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +51,11 @@ public class PlayerScript : MonoBehaviour
 
         StartCoroutine(EnergyOverTime());
         StartCoroutine(HealthOverTime());
+
+        if(SceneManager.GetActiveScene().name == "GamePlayScene")
+            gameObject.GetComponent<Animator>().SetBool("isRunning", true);
+        else
+            gameObject.GetComponent<Animator>().SetBool("isRunning", false);
 
     }
 
@@ -63,27 +79,52 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (joystick != null && isDead == false)
-        {
-
-            catDirection = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y, joystick.Vertical * moveSpeed);
-        }
-
+        PlayerInput();
+        PlayerMovableArea();
     }
+
+
 
     private void FixedUpdate()
     {
+        PlayerConstantMove();
         PLayerMove();
     }
 
+    private void PlayerMovableArea()
+    {
+        if (this.transform.position.z < cameraScript.transform.position.z + 0.7f)
+        {
+            // gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            //    isDead = true;
+            //CAT IS DEAD
+        }
+        if (this.transform.position.z > cameraScript.transform.position.z + 11f)
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, cameraScript.transform.position.z + 11f);
+        if (this.transform.position.x > 1.4f)
+            this.transform.position = new Vector3(1.4f, this.transform.position.y, this.transform.position.z);
+        if (this.transform.position.x < -1.4f)
+            this.transform.position = new Vector3(-1.4f, this.transform.position.y, this.transform.position.z);
+    }
+
+    private void PlayerConstantMove()
+    {
+        playerRigidBody.AddForce(new Vector3(0f, 0f, catAndCamMoveSpeed * catConstantSpeed), ForceMode.Force);
+    }
+
+    private void PlayerInput()
+    {
+        if (joystick != null && isDead == false)
+        {
+
+            catVelocity = new Vector3(joystick.Horizontal * catMoveSpeed, playerRigidBody.velocity.y, joystick.Vertical * catMoveSpeed);
+        }
+    }
 
     private void PLayerMove()
     {
 
-
-       // playerRigidBody.AddForce(catDirection * moveSpeed);
-
-        playerRigidBody.velocity = catDirection;
+        playerRigidBody.velocity = catVelocity;
 
 
         float angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
@@ -116,18 +157,44 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-             //   CatDied();
+                //   CatDied();
+                //CAT IS DEAD
             }
 
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Kocimietka")
+        {
+            if (energy <= 0)
+            {
+                energy += kocimietkaAdd;
+                sliderScript.SetSliderValue(sliderScript.EnergySlider, energy);
+                StartCoroutine(EnergyOverTime());
+            }
+            else
+            {
+                energy += kocimietkaAdd;
+                sliderScript.SetSliderValue(sliderScript.EnergySlider, energy);
+            }
+
+        }
+
+
     }
 
     IEnumerator EnergyOverTime()
     {
         while(energy > 0)
         {
-            yield return new WaitForSeconds(5);
-            energy -= 10;
+            yield return new WaitForSeconds(healthAndEnergyTime);
+            energy -= energyLossOverTime;
+
+            if(energy < 0)
+                energy = 0;
+
             sliderScript.SetSliderValue(sliderScript.EnergySlider, energy);
         }
     }
@@ -135,10 +202,11 @@ public class PlayerScript : MonoBehaviour
     {
         while (health > 0)
         {
-            yield return new WaitForSeconds(5);
-            health -= 10;
+            yield return new WaitForSeconds(healthAndEnergyTime);
+            health -= healthLossOverTime;
             sliderScript.SetSliderValue(sliderScript.HealthSlider, health);
         }
+        //CAT IS DEAD
     }
 
 }

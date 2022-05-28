@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+    [SerializeField] PlayerScript playerScript;
+    public float camConstantSpeed;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        transform.position += new Vector3(0f, 0f, playerScript.catAndCamMoveSpeed * camConstantSpeed) * Time.fixedDeltaTime;
     }
 }
