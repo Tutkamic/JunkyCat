@@ -27,8 +27,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private float moveTreshold = 0.1f;
 
-    private CharacterController controller;
-    Vector3 catSpeed;
+    Vector3 catDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +41,6 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(EnergyOverTime());
         StartCoroutine(HealthOverTime());
 
-        controller = GetComponent<CharacterController>();
     }
 
     private void TextureSet()
@@ -65,43 +63,43 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PLayerMove();
+        if (joystick != null && isDead == false)
+        {
+
+            catDirection = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y, joystick.Vertical * moveSpeed);
+        }
+
     }
 
     private void FixedUpdate()
     {
-
-      
+        PLayerMove();
     }
+
 
     private void PLayerMove()
     {
-        if (joystick != null && isDead == false)
-        {
-          //  gameObject.GetComponent<Animator>().SetBool("isRunning", true);
 
 
-                catSpeed = new Vector3((float)joystick.Horizontal, 0f, (float)joystick.Vertical);
+       // playerRigidBody.AddForce(catDirection * moveSpeed);
+
+        playerRigidBody.velocity = catDirection;
 
 
-                float angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
 
-                if (angle > (-30) && angle < 30)
-                    transform.rotation = Quaternion.Euler(0f, angle + 180, 0f);
-                else if (angle <= (-30) && angle > (-150))
-                    transform.rotation = Quaternion.Euler(0f, (-30) + 180, 0f);
-                else if (angle <= (-150))
-                    transform.rotation = Quaternion.Euler(0f, (-(angle + 180)) + 180, 0f);
-                else if (angle >= 30 && angle < 150)
-                    transform.rotation = Quaternion.Euler(0f, 30 + 180, 0f);
-                else if (angle >= 150)
-                    transform.rotation = Quaternion.Euler(0f, (-(angle - 180)) + 180, 0f);
-                else
-                transform.rotation = Quaternion.Euler(0f, 180, 0f);
-
-                controller.SimpleMove(catSpeed * moveSpeed);
-        }
-
+        if (angle > (-30) && angle < 30)
+            transform.rotation = Quaternion.Euler(0f, angle + 180, 0f);
+        else if (angle <= (-30) && angle > (-150))
+            transform.rotation = Quaternion.Euler(0f, (-30) + 180, 0f);
+        else if (angle <= (-150))
+            transform.rotation = Quaternion.Euler(0f, (-(angle + 180)) + 180, 0f);
+        else if (angle >= 30 && angle < 150)
+            transform.rotation = Quaternion.Euler(0f, 30 + 180, 0f);
+        else if (angle >= 150)
+            transform.rotation = Quaternion.Euler(0f, (-(angle - 180)) + 180, 0f);
+        else
+            transform.rotation = Quaternion.Euler(0f, 180, 0f);
 
     }
 

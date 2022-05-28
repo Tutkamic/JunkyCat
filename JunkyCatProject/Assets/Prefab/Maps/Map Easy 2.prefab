@@ -904,6 +904,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: "mapa p\u0142aska"
       objectReference: {fileID: 0}
+    - target: {fileID: 4250499561839965445, guid: 84adb4230cfec0f4d871783f1d781507,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.012010566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250499561839965445, guid: 84adb4230cfec0f4d871783f1d781507,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.006005283
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84adb4230cfec0f4d871783f1d781507, type: 3}
 --- !u!4 &2064231141809200216 stripped
