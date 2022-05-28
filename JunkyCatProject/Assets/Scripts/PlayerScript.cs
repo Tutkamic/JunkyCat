@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
     public int life;
 
     public int kocimietkaAdd = 20;
+    public int milkAdd = 20;
     public int energyLossOverTime = 5;
     public int healthLossOverTime = 5;
 
@@ -101,10 +102,6 @@ public class PlayerScript : MonoBehaviour
         }
         if (this.transform.position.z > cameraScript.transform.position.z + 11f)
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, cameraScript.transform.position.z + 11f);
-        if (this.transform.position.x > 1.4f)
-            this.transform.position = new Vector3(1.4f, this.transform.position.y, this.transform.position.z);
-        if (this.transform.position.x < -1.4f)
-            this.transform.position = new Vector3(-1.4f, this.transform.position.y, this.transform.position.z);
     }
 
     private void PlayerConstantMove()
@@ -168,6 +165,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.tag == "Kocimietka")
         {
+            Destroy(other.gameObject);
+
             if (energy <= 0)
             {
                 energy += kocimietkaAdd;
@@ -179,7 +178,33 @@ public class PlayerScript : MonoBehaviour
                 energy += kocimietkaAdd;
                 sliderScript.SetSliderValue(sliderScript.EnergySlider, energy);
             }
+        }
+        else if (other.tag == "Milk")
+        {
+            Destroy(other.gameObject);
 
+            if (health <= 0)
+            {
+                health += milkAdd;
+                sliderScript.SetSliderValue(sliderScript.HealthSlider, health);
+                StartCoroutine(HealthOverTime());
+            }
+            else
+            {
+                health += milkAdd;
+                sliderScript.SetSliderValue(sliderScript.HealthSlider, health);
+            }
+
+        }
+        else if (other.tag == "Mouse")
+        {
+            Destroy(other.gameObject);
+
+            if (life < maxLife)
+            {
+                life++;
+                sliderScript.SetSliderValue(sliderScript.LifeSlider, life);
+            }
         }
 
 
