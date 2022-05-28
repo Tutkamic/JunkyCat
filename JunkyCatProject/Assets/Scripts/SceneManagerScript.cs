@@ -54,31 +54,31 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Color1()
     {
-        PlayerChnages(0, "Fonfel");
+        PlayerChanges(0, "Fonfel");
     }
 
     public void Color2()
     {
-        PlayerChnages(1, "Fisiek");
+        PlayerChanges(1, "Fisiek");
     }
     public void Color3()
     {
-        PlayerChnages(2, "Chester");
+        PlayerChanges(2, "Chester");
     }
     public void Color4()
     {
-        PlayerChnages(3, "Dodi");
+        PlayerChanges(3, "Dodi");
     }
     public void Color5()
     {
-        PlayerChnages(4, "Tzomaraka");
+        PlayerChanges(4, "Tzomaraka");
     }
     public void Color6()
     {
-        PlayerChnages(5, "Milka");
+        PlayerChanges(5, "Milka");
     }
 
-    private void PlayerChnages(int numer, string nazwa)
+    private void PlayerChanges(int numer, string nazwa)
     {
         ButtonStateChange(numer);
         PlayerNameText(nazwa);

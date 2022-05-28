@@ -27,6 +27,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private float moveTreshold = 0.1f;
 
+    private CharacterController controller;
+    Vector3 catSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,8 @@ public class PlayerScript : MonoBehaviour
 
         StartCoroutine(EnergyOverTime());
         StartCoroutine(HealthOverTime());
+
+        controller = GetComponent<CharacterController>();
     }
 
     private void TextureSet()
@@ -46,6 +51,7 @@ public class PlayerScript : MonoBehaviour
             catMaterial.SetTexture("_BaseMap", GameManagerScript.instance.playerMaterialTexture);
         else
             catMaterial.SetTexture("_BaseMap", defaultTexture);
+        
     }
 
     private void SetMaxValue()
@@ -59,24 +65,25 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        PLayerMove();
     }
 
     private void FixedUpdate()
     {
-        PLayerMove();
+
+      
     }
 
     private void PLayerMove()
     {
         if (joystick != null && isDead == false)
         {
-            gameObject.GetComponent<Animator>().SetBool("isRunning", true);
+          //  gameObject.GetComponent<Animator>().SetBool("isRunning", true);
 
-            if (joystick.Horizontal > moveTreshold || joystick.Vertical > moveTreshold || joystick.Horizontal < -(moveTreshold) || joystick.Vertical < (-moveTreshold))
-            {
-              //  playerRigidBody.velocity = new Vector3(joystick.Horizontal * moveSpeed, playerRigidBody.velocity.y * (-1), joystick.Vertical * moveSpeed);
-                transform.position += new Vector3(joystick.Horizontal * moveSpeed, 0f, joystick.Vertical * moveSpeed);
+
+                catSpeed = new Vector3((float)joystick.Horizontal, 0f, (float)joystick.Vertical);
+
+
                 float angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;
 
                 if (angle > (-30) && angle < 30)
@@ -89,15 +96,13 @@ public class PlayerScript : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0f, 30 + 180, 0f);
                 else if (angle >= 150)
                     transform.rotation = Quaternion.Euler(0f, (-(angle - 180)) + 180, 0f);
-            }
-            else
+                else
                 transform.rotation = Quaternion.Euler(0f, 180, 0f);
+
+                controller.SimpleMove(catSpeed * moveSpeed);
         }
 
-        if (transform.position.y >= 0.172)
-        {
-            transform.position = new Vector3(transform.position.x, 0.172f, transform.position.z);
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

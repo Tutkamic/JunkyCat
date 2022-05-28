@@ -8,14 +8,12 @@ public class MapManagerScript : MonoBehaviour
     public GameObject[] mapMiddle;
     public GameObject[] mapHard;
 
-    public static float mapSpeed = 1f;
     private Vector3 spawnMapPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnMapPosition = new Vector3(0.9077362f, -0.0765478f, 18.624f);
-        StartCoroutine(MapCreate(16.3f));
+        spawnMapPosition = new Vector3(0f, 0f, 16.324f);
     }
 
     // Update is called once per frame
@@ -29,12 +27,10 @@ public class MapManagerScript : MonoBehaviour
 
     }
 
-    IEnumerator MapCreate(float time)
+    public void MapCreate()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(time);
-            Instantiate(mapEasy[0], spawnMapPosition, Quaternion.identity);
-        }
+        Instantiate(mapEasy[0], spawnMapPosition, Quaternion.identity);
+      //  spawnMapPosition.z += 16.324f;
     }
+
 }

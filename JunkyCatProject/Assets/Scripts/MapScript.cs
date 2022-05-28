@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class MapScript : MonoBehaviour
 {
+    private MapManagerScript mapManagerScript;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        mapManagerScript = FindObjectOfType<MapManagerScript>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
     }
 
-    private void FixedUpdate()
-    {
-        transform.position += new Vector3(0f, 0f, -(MapManagerScript.mapSpeed)) * Time.deltaTime;
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.tag == "MapDestroy")
-        {
-            Destroy(gameObject);
-        }
-    }
 }
