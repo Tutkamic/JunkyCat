@@ -396,9 +396,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2656038650846547967}
   - component: {fileID: 1684499081}
-  - component: {fileID: 3655856706869824916}
   - component: {fileID: 7278375392761199700}
   - component: {fileID: 3090152405975852448}
+  - component: {fileID: 3655856706869824916}
+  - component: {fileID: 7603620956385931214}
+  - component: {fileID: 1889846869110182185}
+  - component: {fileID: 2949999253389799883}
+  - component: {fileID: 6063538501377900108}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -450,28 +454,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3655856706869824916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429479812960015685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5f5f92ae9ecfa49a90b044cb5ba52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderScript: {fileID: 0}
-  catMaterial: {fileID: 2100000, guid: a1528af24b7727840bbde1c20ed9985f, type: 2}
-  defaultTexture: {fileID: 2800000, guid: bccc94c94283e1d469f627aeca31e9dd, type: 3}
-  isDead: 0
-  health: 0
-  energy: 0
-  life: 0
-  playerRigidBody: {fileID: 0}
-  joystick: {fileID: 0}
-  moveSpeed: 5
 --- !u!136 &7278375392761199700
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -502,6 +484,96 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &3655856706869824916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5f5f92ae9ecfa49a90b044cb5ba52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderScript: {fileID: 0}
+  cameraScript: {fileID: 0}
+  playerInputScript: {fileID: 0}
+  playerMovementScript: {fileID: 0}
+  playerCollisionScript: {fileID: 0}
+  playerStatsScript: {fileID: 0}
+  playerRigidBody: {fileID: 0}
+  catMaterial: {fileID: 2100000, guid: a1528af24b7727840bbde1c20ed9985f, type: 2}
+  defaultTexture: {fileID: 2800000, guid: bccc94c94283e1d469f627aeca31e9dd, type: 3}
+  isDead: 0
+--- !u!114 &7603620956385931214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b867fbeabce23b4984d543dfe79caf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
+  playerScript: {fileID: 0}
+  playerRigidBody: {fileID: 0}
+  angle: 0
+  catMoveSpeed: 3
+  catAndCamMoveSpeed: 2
+  catConstantSpeed: 55
+  catVelocity: {x: 0, y: 0, z: 0}
+--- !u!114 &1889846869110182185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa60afcce728f2f4a8cdefeac4bc3801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidBody: {fileID: 0}
+  playerScript: {fileID: 0}
+--- !u!114 &2949999253389799883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280cb109562411443abf7543ace98767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+--- !u!114 &6063538501377900108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e73f2d34d3495439b58bde3660ee2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+  health: 0
+  energy: 0
+  life: 0
+  kocimietkaAdd: 20
+  milkAdd: 20
+  energyLossOverTime: 5
+  healthLossOverTime: 5
+  healthAndEnergyTime: 1
 --- !u!1 &3917836226520005241
 GameObject:
   m_ObjectHideFlags: 0
