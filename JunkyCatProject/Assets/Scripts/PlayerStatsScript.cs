@@ -27,13 +27,17 @@ public class PlayerStatsScript : MonoBehaviour
 
     void Start()
     {
+        SetMaxSliderValue();
         SetMaxValue();
+        StartCoroutine(EnergyOverTime());
+        StartCoroutine(HealthOverTime());
+    }
+
+    private void SetMaxSliderValue()
+    {
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.HealthSlider, maxHealth);
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.EnergySlider, maxEnergy);
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.LifeSlider, maxLife);
-
-        StartCoroutine(EnergyOverTime());
-        StartCoroutine(HealthOverTime());
     }
 
     // Update is called once per frame
