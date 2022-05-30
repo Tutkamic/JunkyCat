@@ -15,15 +15,16 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] internal PlayerMovementScript playerMovementScript;
     [SerializeField] internal PlayerCollisionScript playerCollisionScript;
     [SerializeField] internal PlayerStatsScript playerStatsScript;
+    [SerializeField] internal PlayerAnimationScript playerAnimationScript;
 
     [SerializeField] private Rigidbody playerRigidBody;
-
 
     public Material catMaterial;
     public Texture defaultTexture;
 
-    public bool isDead = false;
+    public GameObject deathScreen;
 
+    public bool catHasDied;
 
     private void Awake()
     {
@@ -31,18 +32,14 @@ public class PlayerScript : MonoBehaviour
         playerMovementScript = GetComponent<PlayerMovementScript>();
         playerCollisionScript = GetComponent<PlayerCollisionScript>();
         playerStatsScript = GetComponent<PlayerStatsScript>();
+        playerAnimationScript = GetComponent<PlayerAnimationScript>();
+        catHasDied = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         TextureSet();
-
-        if(SceneManager.GetActiveScene().name == "GamePlayScene")
-            gameObject.GetComponent<Animator>().SetBool("isRunning", true);
-        else
-            gameObject.GetComponent<Animator>().SetBool("isRunning", false);
-
     }
 
     private void TextureSet()
@@ -51,7 +48,7 @@ public class PlayerScript : MonoBehaviour
             catMaterial.SetTexture("_BaseMap", GameManagerScript.instance.playerMaterialTexture);
         else
             catMaterial.SetTexture("_BaseMap", defaultTexture);
-        
+
     }
 
 
@@ -59,6 +56,21 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CatDead();
+    }
+
+    public void CatDead()
+    {
+        if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfHealth == true || playerStatsScript.catOutOfLife == true)
+        {
+            catHasDied = true;
+
+            if (CatDied != null)
+            {
+                CatDied();
+            }
+            Debug.Log("CatDead");
+        }
 
     }
 

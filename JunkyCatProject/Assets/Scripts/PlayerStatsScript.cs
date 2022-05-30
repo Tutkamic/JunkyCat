@@ -20,9 +20,24 @@ public class PlayerStatsScript : MonoBehaviour
 
     public int healthAndEnergyTime = 1;
 
+    public bool catOutOfLife;
+    public bool catOutOfHealth;
+
+    private void OnEnable()
+    {
+        PlayerScript.CatDied += CatStatReset;
+    }
+
+    private void OnDisable()
+    {
+        PlayerScript.CatDied -= CatStatReset;
+    }
+
     private void Awake()
     {
         playerScript = GetComponent<PlayerScript>();
+        catOutOfLife = false;
+        catOutOfHealth = false;
     }
 
     void Start()
@@ -94,16 +109,16 @@ public class PlayerStatsScript : MonoBehaviour
 
     public void GetHit()
     {
-        // gameObject.GetComponent<Animator>().SetBool("isDead", true);
-        //    isDead = true;
-        if (life > 0)
+        if (life > 1)
         {
             life -= 1;
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, life);
         }
-        else
+        else if (life == 1)
         {
-            //   CatDied();
+            life -= 1;
+            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, life);
+            catOutOfLife = true;
             //CAT IS DEAD
         }
     }
@@ -129,6 +144,16 @@ public class PlayerStatsScript : MonoBehaviour
             health -= healthLossOverTime;
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.HealthSlider, health);
         }
+        catOutOfHealth = true;
         //CAT IS DEAD
+    }
+
+    private void CatStatReset()
+    {
+        catOutOfHealth = false;
+        catOutOfLife = false;
+        SetMaxSliderValue();
+        SetMaxValue();
+        StopAllCoroutines();
     }
 }

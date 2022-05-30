@@ -19,13 +19,36 @@ public class SceneManagerScript : MonoBehaviour
 
     public GameObject[] manualScreen;
 
+    public GameObject highScoreScreen;
+    public TextMeshProUGUI highscoreName;
+    public TextMeshProUGUI highscoreScore;
+
+    private void Awake()
+    {
+        playerScript = FindObjectOfType<PlayerScript>();
+    }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "CharacterScene")
+        {
+            PlayerChanges(0, "Fonfel");
+        }
+    }
+
     public void StartButton()
     {
         SceneManager.LoadScene(1);
     }
     public void HighScoresButton()
     {
-    
+        highScoreScreen.gameObject.SetActive(true);
+        highscoreScore.text = GameManagerScript.instance.highscore.ToString();
+        highscoreName.text = GameManagerScript.instance.highscorePlayerName.ToString();
+    }
+
+    public void HighScoreHide()
+    {
+        highScoreScreen.gameObject.SetActive(false);
     }
     public void ExitButton()
     {
@@ -35,6 +58,7 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
     public void GoButton()
     {
         manualScreen[0].gameObject.SetActive(true);
@@ -105,5 +129,6 @@ public class SceneManagerScript : MonoBehaviour
        GameManagerScript.instance.playerMaterialTexture = texture;
        CatBodyMaterial.SetTexture("_BaseMap", texture);
     }
+
 
 }

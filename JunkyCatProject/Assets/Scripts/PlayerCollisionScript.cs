@@ -11,16 +11,6 @@ public class PlayerCollisionScript : MonoBehaviour
     {
         playerScript = GetComponent<PlayerScript>();
     }
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

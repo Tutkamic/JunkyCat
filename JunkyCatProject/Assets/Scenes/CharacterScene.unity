@@ -7116,7 +7116,6 @@ GameObject:
   - component: {fileID: 1000994390}
   - component: {fileID: 7278375391574040715}
   - component: {fileID: 3090152407180310911}
-  - component: {fileID: 3655856708124283211}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -7155,28 +7154,6 @@ Transform:
   m_Father: {fileID: 4466078024210650915}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3655856708124283211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429479813500651930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5f5f92ae9ecfa49a90b044cb5ba52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderScript: {fileID: 0}
-  cameraScript: {fileID: 0}
-  playerInputScript: {fileID: 0}
-  playerMovementScript: {fileID: 0}
-  playerCollisionScript: {fileID: 0}
-  playerStatsScript: {fileID: 0}
-  playerRigidBody: {fileID: 0}
-  catMaterial: {fileID: 2100000, guid: a1528af24b7727840bbde1c20ed9985f, type: 2}
-  defaultTexture: {fileID: 2800000, guid: bccc94c94283e1d469f627aeca31e9dd, type: 3}
-  isDead: 0
 --- !u!4 &3723028749915827719
 Transform:
   m_ObjectHideFlags: 0

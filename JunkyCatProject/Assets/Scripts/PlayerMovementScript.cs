@@ -7,10 +7,23 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidBody;
     [SerializeField] PlayerScript playerScript;
 
+    public bool catOutOfMap;
+
+    private void OnEnable()
+    {
+        PlayerScript.CatDied += CatOutOfMapReset;
+    }
+
+    private void OnDisable()
+    {
+        PlayerScript.CatDied -= CatOutOfMapReset;
+    }
+
     private void Awake()
     {
         playerScript = GetComponent<PlayerScript>();
         playerRigidBody = GetComponent<Rigidbody>();
+        catOutOfMap = false;
     }
 
     void Start()
@@ -22,6 +35,7 @@ public class PlayerMovementScript : MonoBehaviour
     void Update()
     {
         PlayerRotate(playerScript.playerInputScript.angle);
+
         PlayerMovableArea();
     }
 
@@ -29,6 +43,8 @@ public class PlayerMovementScript : MonoBehaviour
     {
         PlayerConstantMove();
         PLayerMove();
+        PlayerFallCheck();
+        
     }
 
     private void PlayerConstantMove()
@@ -60,13 +76,31 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void PlayerMovableArea()
     {
-        if (this.transform.position.z < playerScript.cameraScript.transform.position.z + 0.7f)
+        if (this.transform.position.z < playerScript.cameraScript.transform.position.z + 0.7f && playerScript.catHasDied == false)
         {
-            // gameObject.GetComponent<Animator>().SetBool("isDead", true);
-            //    isDead = true;
+            catOutOfMap = true;
             //CAT IS DEAD
         }
+        else 
+            catOutOfMap = false;
+
         if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 11f)
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, playerScript.cameraScript.transform.position.z + 11f);
+    }
+
+    private void PlayerFallCheck()
+    {
+        if (this.transform.position.y < -0.5 && playerScript.catHasDied == false)
+        {
+            catOutOfMap = true;
+            //CAT IS DEAD
+        }
+        else
+            catOutOfMap = false;
+    }
+
+    private void CatOutOfMapReset()
+    {
+        catOutOfMap = false;
     }
 }

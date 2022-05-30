@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 1889846869110182185}
   - component: {fileID: 2949999253389799883}
   - component: {fileID: 6063538501377900108}
+  - component: {fileID: -1130731487574342378}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Player
@@ -566,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
+  deathscene: {fileID: 0}
   health: 0
   energy: 0
   life: 0
@@ -574,6 +576,18 @@ MonoBehaviour:
   energyLossOverTime: 5
   healthLossOverTime: 5
   healthAndEnergyTime: 1
+--- !u!114 &-1130731487574342378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429479812960015685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469d7f5e4ffca6343bde050930b52828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3917836226520005241
 GameObject:
   m_ObjectHideFlags: 0
