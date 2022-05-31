@@ -52,7 +52,7 @@ public class PlayerStatsScript : MonoBehaviour
     {
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.HealthSlider, maxHealth);
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.EnergySlider, maxEnergy);
-        playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.LifeSlider, maxLife);
+        playerScript.sliderLifeScript.SetMaxSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, maxLife);
     }
 
     // Update is called once per frame
@@ -66,7 +66,7 @@ public class PlayerStatsScript : MonoBehaviour
         health = maxHealth;
         energy = maxEnergy;
         life = 4;
-        playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, 4);
+        playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, 4);
     }
     public void KocimietkaAdd()
     {
@@ -103,7 +103,7 @@ public class PlayerStatsScript : MonoBehaviour
         if (life < maxLife)
         {
             life++;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, life);
+            playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         }
     }
 
@@ -112,12 +112,12 @@ public class PlayerStatsScript : MonoBehaviour
         if (life > 1)
         {
             life -= 1;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, life);
+            playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         }
         else if (life == 1)
         {
             life -= 1;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.LifeSlider, life);
+            playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
             catOutOfLife = true;
             //CAT IS DEAD
         }

@@ -7,7 +7,6 @@ public class SliderScript : MonoBehaviour
 {
     public Slider HealthSlider;
     public Slider EnergySlider;
-    public Slider LifeSlider;
 
     public void SetMaxSliderValue(Slider slider, int maxValue)
     {

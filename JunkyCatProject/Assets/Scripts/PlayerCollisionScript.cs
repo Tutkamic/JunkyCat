@@ -17,11 +17,14 @@ public class PlayerCollisionScript : MonoBehaviour
         if (collision.collider.tag == "Enemy")
         {
             playerScript.playerStatsScript.GetHit();
+            playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.hitSound);
         }
     }
 
     private void OnTriggerEnter(Collider trigger)
     {
+        playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
+
         if (trigger.tag == "Kocimietka")
         {
             Destroy(trigger.gameObject);

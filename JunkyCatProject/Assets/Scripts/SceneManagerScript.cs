@@ -9,6 +9,8 @@ public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] PlayerScript playerScript;
 
+    public AudioSource clickSound;
+
     public Image[] colorButtonImage;
     public Sprite[] colorButtonSpriteActive;
     public Sprite[] colorButtonSpriteUnactive;
@@ -37,10 +39,12 @@ public class SceneManagerScript : MonoBehaviour
 
     public void StartButton()
     {
+        PLaySoundEffect();
         SceneManager.LoadScene(1);
     }
     public void HighScoresButton()
     {
+        PLaySoundEffect();
         highScoreScreen.gameObject.SetActive(true);
         highscoreScore.text = GameManagerScript.instance.highscore.ToString();
         highscoreName.text = GameManagerScript.instance.highscorePlayerName.ToString();
@@ -52,15 +56,18 @@ public class SceneManagerScript : MonoBehaviour
     }
     public void ExitButton()
     {
+        PLaySoundEffect();
         Application.Quit();
     }
     public void MainMenuButton()
     {
+        PLaySoundEffect();
         SceneManager.LoadScene(0);
     }
 
     public void GoButton()
     {
+        PLaySoundEffect();
         manualScreen[0].gameObject.SetActive(true);
     }
     public void ManualScreen1()
@@ -104,6 +111,8 @@ public class SceneManagerScript : MonoBehaviour
 
     private void PlayerChanges(int numer, string nazwa)
     {
+        PLaySoundEffect();
+
         ButtonStateChange(numer);
         PlayerNameText(nazwa);
         PlayerMaterialTexture(playerBodyMaterialTexture[numer]);
@@ -128,6 +137,11 @@ public class SceneManagerScript : MonoBehaviour
     {
        GameManagerScript.instance.playerMaterialTexture = texture;
        CatBodyMaterial.SetTexture("_BaseMap", texture);
+    }
+
+    void PLaySoundEffect()
+    {
+        clickSound.Play();
     }
 
 

@@ -10,12 +10,14 @@ public class PlayerScript : MonoBehaviour
     public static event PlayerDied CatDied;
 
     [SerializeField] internal SliderScript sliderScript;
+    [SerializeField] internal SliderLifeScript sliderLifeScript;
     [SerializeField] internal CameraScript cameraScript;
     [SerializeField] internal PlayerInputScript playerInputScript;
     [SerializeField] internal PlayerMovementScript playerMovementScript;
     [SerializeField] internal PlayerCollisionScript playerCollisionScript;
     [SerializeField] internal PlayerStatsScript playerStatsScript;
     [SerializeField] internal PlayerAnimationScript playerAnimationScript;
+    [SerializeField] internal PlayerSoundManagerScript playerSoundManagerScript;
 
     [SerializeField] private Rigidbody playerRigidBody;
 
@@ -33,6 +35,7 @@ public class PlayerScript : MonoBehaviour
         playerCollisionScript = GetComponent<PlayerCollisionScript>();
         playerStatsScript = GetComponent<PlayerStatsScript>();
         playerAnimationScript = GetComponent<PlayerAnimationScript>();
+        playerSoundManagerScript = GetComponent<PlayerSoundManagerScript>();
         catHasDied = false;
     }
 
@@ -63,6 +66,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfHealth == true || playerStatsScript.catOutOfLife == true)
         {
+            playerSoundManagerScript.PlaySound(playerSoundManagerScript.hitSound);
             catHasDied = true;
 
             if (CatDied != null)
