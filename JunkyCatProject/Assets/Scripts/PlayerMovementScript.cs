@@ -41,10 +41,12 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerConstantMove();
-        PLayerMove();
-        PlayerFallCheck();
-        
+        if (playerScript.catHasDied == false)
+        {
+            PlayerConstantMove();
+            PLayerMove();
+            PlayerFallCheck();
+        }
     }
 
     private void PlayerConstantMove()
@@ -90,7 +92,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void PlayerFallCheck()
     {
-        if (this.transform.position.y < -0.5 && playerScript.catHasDied == false)
+        if (this.transform.position.y < -0.5)
         {
             catOutOfMap = true;
             //CAT IS DEAD

@@ -44,7 +44,7 @@ public class PlayerInputScript : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (joystick != null)
+        if (joystick != null && playerScript.catHasDied == false)
         {
             catVelocity = new Vector3(joystick.Horizontal * catMoveSpeed, playerRigidBody.velocity.y, joystick.Vertical * catMoveSpeed);
             angle = Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg;

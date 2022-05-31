@@ -19,6 +19,8 @@ public class SceneManagerScript : MonoBehaviour
     public Texture[] playerBodyMaterialTexture;
     public Material CatBodyMaterial;
 
+    public Shader CatBodyShader;
+
     public GameObject[] manualScreen;
 
     public GameObject highScoreScreen;
@@ -34,6 +36,7 @@ public class SceneManagerScript : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "CharacterScene")
         {
             PlayerChanges(0, "Fonfel");
+            CatBodyMaterial.shader = CatBodyShader;
         }
     }
 

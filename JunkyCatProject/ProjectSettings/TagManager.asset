@@ -8,17 +8,18 @@ TagManager:
   - Kocimietka
   - Milk
   - Mouse
+  - Scorpion
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Bounds
+  - Enemy
+  - Scorpion
+  - Mouse
   - 
   - 
   - 
