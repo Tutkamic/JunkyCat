@@ -27,6 +27,13 @@ public class SceneManagerScript : MonoBehaviour
     public TextMeshProUGUI highscoreName;
     public TextMeshProUGUI highscoreScore;
 
+    public delegate void PauseGame();
+    public static event PauseGame Pause;
+    public static event PauseGame Resume;
+
+    public GameObject pauseScreen;
+
+    public bool gamePaused = false;
     private void Awake()
     {
         playerScript = FindObjectOfType<PlayerScript>();
@@ -38,6 +45,11 @@ public class SceneManagerScript : MonoBehaviour
             PlayerChanges(0, "Fonfel");
             CatBodyMaterial.shader = CatBodyShader;
         }
+    }
+
+    private void Update()
+    {
+        ExitPauseButton();
     }
 
     public void StartButton()
@@ -61,6 +73,11 @@ public class SceneManagerScript : MonoBehaviour
     {
         PLaySoundEffect();
         Application.Quit();
+    }
+    public void ResumeButton()
+    {
+        PLaySoundEffect();
+        ResumeStart();
     }
     public void MainMenuButton()
     {
@@ -89,33 +106,37 @@ public class SceneManagerScript : MonoBehaviour
     public void Color1()
     {
         PlayerChanges(0, "Fonfel");
+        PLaySoundEffect();
     }
 
     public void Color2()
     {
         PlayerChanges(1, "Fisiek");
+        PLaySoundEffect();
     }
     public void Color3()
     {
         PlayerChanges(2, "Chester");
+        PLaySoundEffect();
     }
     public void Color4()
     {
         PlayerChanges(3, "Dodi");
+        PLaySoundEffect();
     }
     public void Color5()
     {
         PlayerChanges(4, "Tzomaraka");
+        PLaySoundEffect();
     }
     public void Color6()
     {
         PlayerChanges(5, "Milka");
+        PLaySoundEffect();
     }
 
     private void PlayerChanges(int numer, string nazwa)
     {
-        PLaySoundEffect();
-
         ButtonStateChange(numer);
         PlayerNameText(nazwa);
         PlayerMaterialTexture(playerBodyMaterialTexture[numer]);
@@ -147,5 +168,40 @@ public class SceneManagerScript : MonoBehaviour
         clickSound.Play();
     }
 
+    void ExitPauseButton()
+    {
+        //if (Input.GetKey(KeyCode.Escape)
+             if (Input.GetKeyDown("space"))
+        {
+            if (SceneManager.GetActiveScene().name == "CharacterScene")
+                SceneManager.LoadScene(0);
+            else if (SceneManager.GetActiveScene().name == "MainMenu")
+                Application.Quit();
+            else if (SceneManager.GetActiveScene().name == "GamePlayScene")
+                PauseStart();
+
+        }
+    }
+
+    public void PauseStart()
+    {
+        if (gamePaused == false)
+        {
+            gamePaused = true;
+            pauseScreen.SetActive(true);
+
+            if (Pause != null)
+                Pause();
+        }
+    }
+
+    public void ResumeStart()
+    {
+        gamePaused = false;
+        pauseScreen.SetActive(false);
+
+        if (Resume != null)
+            Resume();
+    }
 
 }

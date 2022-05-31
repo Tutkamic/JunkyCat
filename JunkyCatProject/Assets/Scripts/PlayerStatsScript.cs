@@ -6,51 +6,50 @@ public class PlayerStatsScript : MonoBehaviour
 {
     [SerializeField] PlayerScript playerScript;
 
-    private int maxHealth = 200;
     private int maxEnergy = 200;
     private int maxLife = 9;
-    public int health;
     public int energy;
     public int life;
 
     public int kocimietkaAdd = 20;
-    public int milkAdd = 20;
-    public int energyLossOverTime = 5;
-    public int healthLossOverTime = 5;
+    public int milkAdd = 10;
+    public int energyLossOverTime = 10;
 
-    public int healthAndEnergyTime = 1;
+    public int energyTime = 1;
 
     public bool catOutOfLife;
-    public bool catOutOfHealth;
+    public bool pauseStats;
 
     private void OnEnable()
     {
         PlayerScript.CatDied += CatStatReset;
+        SceneManagerScript.Pause += StopStats;
+        SceneManagerScript.Resume += StartStats;
     }
 
     private void OnDisable()
     {
         PlayerScript.CatDied -= CatStatReset;
+        SceneManagerScript.Pause -= StopStats;
+        SceneManagerScript.Resume -= StartStats;
     }
 
     private void Awake()
     {
         playerScript = GetComponent<PlayerScript>();
         catOutOfLife = false;
-        catOutOfHealth = false;
+        pauseStats = false;
     }
 
     void Start()
     {
         SetMaxSliderValue();
-        SetMaxValue();
+        SetStartValue();
         StartCoroutine(EnergyOverTime());
-        StartCoroutine(HealthOverTime());
     }
 
     private void SetMaxSliderValue()
     {
-        playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.HealthSlider, maxHealth);
         playerScript.sliderScript.SetMaxSliderValue(playerScript.sliderScript.EnergySlider, maxEnergy);
         playerScript.sliderLifeScript.SetMaxSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, maxLife);
     }
@@ -58,17 +57,17 @@ public class PlayerStatsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CatSpeedOverEnergy();
     }
 
-    private void SetMaxValue()
+    private void SetStartValue()
     {
-        health = maxHealth;
-        energy = maxEnergy;
+        energy = 100;
         life = 4;
-        playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, 4);
+        playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
+        playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }
-    public void KocimietkaAdd()
+    public void EnergyAdd()
     {
         if (energy <= 0)
         {
@@ -76,25 +75,10 @@ public class PlayerStatsScript : MonoBehaviour
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
             StartCoroutine(EnergyOverTime());
         }
-        else
+        else if (energy > 0 && energy <= maxEnergy)
         {
             energy += kocimietkaAdd;
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
-        }
-    }
-
-    public void MilkAdd()
-    {
-        if (health <= 0)
-        {
-            health += milkAdd;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.HealthSlider, health);
-            StartCoroutine(HealthOverTime());
-        }
-        else
-        {
-            health += milkAdd;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.HealthSlider, health);
         }
     }
 
@@ -127,7 +111,7 @@ public class PlayerStatsScript : MonoBehaviour
     {
         while (energy > 0)
         {
-            yield return new WaitForSeconds(healthAndEnergyTime);
+            yield return new WaitForSeconds(energyTime);
             energy -= energyLossOverTime;
 
             if (energy < 0)
@@ -136,24 +120,35 @@ public class PlayerStatsScript : MonoBehaviour
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
         }
     }
-    IEnumerator HealthOverTime()
-    {
-        while (health > 0)
-        {
-            yield return new WaitForSeconds(healthAndEnergyTime);
-            health -= healthLossOverTime;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.HealthSlider, health);
-        }
-        catOutOfHealth = true;
-        //CAT IS DEAD
-    }
 
     private void CatStatReset()
     {
-        catOutOfHealth = false;
         catOutOfLife = false;
         SetMaxSliderValue();
-        SetMaxValue();
+        SetStartValue();
         StopAllCoroutines();
+    }
+
+    void CatSpeedOverEnergy()
+    {
+        if(playerScript.catHasDied == false && pauseStats == false)
+        {
+            playerScript.playerInputScript.catAndCamMoveSpeed = Mathf.Lerp(1.5f, 4f, playerScript.sliderScript.EnergySlider.normalizedValue);
+            playerScript.playerAnimationScript.animationRunSpeed = Mathf.Lerp(1.5f, 3f, playerScript.sliderScript.EnergySlider.normalizedValue);
+        }
+    }
+
+    private void StopStats()
+    {
+        StopAllCoroutines();
+        energyLossOverTime = 0;
+        pauseStats = true;
+    }
+
+    private void StartStats()
+    {
+        StartCoroutine(EnergyOverTime());
+        energyLossOverTime = 10;
+        pauseStats = false;
     }
 }

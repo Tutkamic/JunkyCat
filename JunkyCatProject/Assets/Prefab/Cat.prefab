@@ -530,7 +530,7 @@ MonoBehaviour:
   playerRigidBody: {fileID: 0}
   angle: 0
   catMoveSpeed: 3
-  catAndCamMoveSpeed: 3
+  catAndCamMoveSpeed: 2
   catConstantSpeed: 55
   catVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1889846869110182185
@@ -580,16 +580,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 0}
-  health: 0
   energy: 0
   life: 0
   kocimietkaAdd: 20
-  milkAdd: 20
-  energyLossOverTime: 5
-  healthLossOverTime: 5
-  healthAndEnergyTime: 1
+  milkAdd: 10
+  energyLossOverTime: 10
+  energyTime: 1
   catOutOfLife: 0
-  catOutOfHealth: 0
+  pauseStats: 0
 --- !u!114 &-1130731487574342378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469d7f5e4ffca6343bde050930b52828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationRunSpeed: 0
 --- !u!114 &4073765686032013125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2769,7 +2768,7 @@ PrefabInstance:
     - target: {fileID: 5102949463180255438, guid: 84b72c7ed39d9b042bf46d7c2e606f9b,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 5102949464299817482, guid: 84b72c7ed39d9b042bf46d7c2e606f9b,
         type: 3}

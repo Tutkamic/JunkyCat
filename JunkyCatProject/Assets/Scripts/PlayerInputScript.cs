@@ -9,20 +9,24 @@ public class PlayerInputScript : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidBody;
 
     public float angle;
-    public float catMoveSpeed;
-    public float catAndCamMoveSpeed;
-    public float catConstantSpeed;
+    public float catMoveSpeed = 3;
+    public float catAndCamMoveSpeed = 2;
+    public float catConstantSpeed = 55;
 
     public Vector3 catVelocity;
 
     private void OnEnable()
     {
         PlayerScript.CatDied += StopMoving;
+        SceneManagerScript.Pause += StopMoving;
+        SceneManagerScript.Resume += StartMoving;
     }
 
     private void OnDisable()
     {
         PlayerScript.CatDied -= StopMoving;
+        SceneManagerScript.Pause -= StopMoving;
+        SceneManagerScript.Resume -= StartMoving;
     }
 
     private void Awake()
@@ -57,5 +61,11 @@ public class PlayerInputScript : MonoBehaviour
         catAndCamMoveSpeed = 0;
         catConstantSpeed = 0;
         angle = -180;
+    }
+
+    void StartMoving()
+    {
+        catMoveSpeed = 3;
+        catConstantSpeed = 55;
     }
 }

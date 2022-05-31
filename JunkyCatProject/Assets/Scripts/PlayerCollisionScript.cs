@@ -39,16 +39,10 @@ public class PlayerCollisionScript : MonoBehaviour
     {
         playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
 
-        if (trigger.tag == "Kocimietka")
+        if (trigger.tag == "Kocimietka" || trigger.tag == "Milk")
         {
             Destroy(trigger.gameObject);
-            playerScript.playerStatsScript.KocimietkaAdd();
-        }
-        else if (trigger.tag == "Milk")
-        {
-            Destroy(trigger.gameObject);
-            playerScript.playerStatsScript.MilkAdd();
-
+            playerScript.playerStatsScript.EnergyAdd();
         }
     }
 

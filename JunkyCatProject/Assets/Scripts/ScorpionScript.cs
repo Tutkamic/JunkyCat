@@ -9,6 +9,7 @@ public class ScorpionScript : MonoBehaviour
     private float distance;
     bool isInRange;
     bool isBite;
+    bool isCatKilled;
     float biteTime;
     float immuneTime = 2f;
 
@@ -31,6 +32,7 @@ public class ScorpionScript : MonoBehaviour
     {
         isInRange = false;
         isBite = false;
+        isCatKilled = false;
     }
 
     // Update is called once per frame
@@ -45,7 +47,8 @@ public class ScorpionScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CatDistance();
+        if(isCatKilled == false)
+         CatDistance();
     }
 
     void CatDistance()
@@ -84,6 +87,6 @@ public class ScorpionScript : MonoBehaviour
     private void StopAttacking()
     {
         StopAllCoroutines();
-        isInRange = true;
+        isCatKilled = true;
     }
 }

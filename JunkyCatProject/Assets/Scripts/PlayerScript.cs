@@ -64,7 +64,7 @@ public class PlayerScript : MonoBehaviour
 
     public void CatDead()
     {
-        if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfHealth == true || playerStatsScript.catOutOfLife == true)
+        if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfLife == true)
         {
             playerSoundManagerScript.PlaySound(playerSoundManagerScript.hitSound);
             catHasDied = true;
@@ -73,7 +73,6 @@ public class PlayerScript : MonoBehaviour
             {
                 CatDied();
             }
-            Debug.Log("CatDead");
         }
 
     }

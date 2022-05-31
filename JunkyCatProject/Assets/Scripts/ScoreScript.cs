@@ -11,11 +11,15 @@ public class ScoreScript : MonoBehaviour
     private void OnEnable()
     {
         PlayerScript.CatDied += StopScore;
+        SceneManagerScript.Pause += StopScore;
+        SceneManagerScript.Resume += StartScore;
     }
 
     private void OnDisable()
     {
         PlayerScript.CatDied -= StopScore;
+        SceneManagerScript.Pause -= StopScore;
+        SceneManagerScript.Resume -= StartScore;
     }
     private void Start()
     {
@@ -41,5 +45,10 @@ public class ScoreScript : MonoBehaviour
     void StopScore()
     {
         StopAllCoroutines();
+    }
+
+    void StartScore()
+    {
+        StartCoroutine(ScoreOverTime(1));
     }
 }

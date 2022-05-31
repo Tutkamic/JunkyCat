@@ -44,7 +44,7 @@ public class MouseScript : MonoBehaviour
     {
         while (distance < 2.5)
         {
-            if (rb.velocity.magnitude < 2)
+            if (rb.velocity.magnitude < 1)
                 rb.AddForce(this.transform.position - cat.transform.position, ForceMode.Impulse);
             else rb.velocity = Vector3.zero;
 
