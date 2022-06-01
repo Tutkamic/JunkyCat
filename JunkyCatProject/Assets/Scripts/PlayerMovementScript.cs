@@ -112,10 +112,13 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ForwardSpeedFactor()
     {
-        forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 1, 2);
+        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 3f)
+            forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 1, 2);
+        else
+            forwardSpeedFactor = 1;
     }
 
-    private float Remap(float x, float a, float b, float c, float d)
+    public static float Remap(float x, float a, float b, float c, float d)
     {
         float fraction = (x - a) / (b - a);
         return Mathf.Lerp(c, d, fraction);

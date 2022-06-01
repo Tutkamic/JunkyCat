@@ -26,6 +26,7 @@ public class ScoreScript : MonoBehaviour
         {
             score = (int)(cat.transform.position.z * 0.5) + 3;
             gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString() + " m";
+            GameManagerScript.instance.finalScore = score;
         }
 
     }

@@ -9,9 +9,9 @@ public class PlayerInputScript : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidBody;
 
     public float angle;
-    public float catMoveSpeed = 3;
-    public float catAndCamMoveSpeed = 2;
-    public float catConstantSpeed = 55;
+    public float catMoveSpeed;
+    public float catAndCamMoveSpeed;
+    public float catConstantSpeed;
 
 
     public Vector3 catVelocity;
@@ -69,7 +69,8 @@ public class PlayerInputScript : MonoBehaviour
 
     void StartMoving()
     {
-        catMoveSpeed = 3;
-        catConstantSpeed = 55;
+        catMoveSpeed = 2.5f;
+        catConstantSpeed = 40;
+        catAndCamMoveSpeed = 2.5f;
     }
 }

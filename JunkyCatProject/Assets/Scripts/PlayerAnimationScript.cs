@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerAnimationScript : MonoBehaviour
 {
     public float animationRunSpeed;
+
+    [SerializeField] PlayerScript playerScript;
     private void OnEnable()
     {
         PlayerScript.CatDied += CatDiedAnimation;
@@ -15,6 +17,11 @@ public class PlayerAnimationScript : MonoBehaviour
     private void OnDisable()
     {
         PlayerScript.CatDied -= CatDiedAnimation;
+    }
+
+    private void Awake()
+    {
+        playerScript = GetComponent<PlayerScript>();
     }
     // Start is called before the first frame update
     void Start()
@@ -26,7 +33,7 @@ public class PlayerAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AnimationRunSpeed(animationRunSpeed);
+        AnimationRunSpeed();
     }
 
     void StartAnimation()
@@ -42,8 +49,13 @@ public class PlayerAnimationScript : MonoBehaviour
         gameObject.GetComponent<Animator>().SetBool("isDead", true);
     }
 
-    public void AnimationRunSpeed(float speed)
+    public void AnimationRunSpeed()
     {
-        gameObject.GetComponent<Animator>().SetFloat("runSpeed", speed);
+        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 3f)
+            animationRunSpeed = PlayerMovementScript.Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 2.0f, 3f);
+        else
+            animationRunSpeed = 2.0f;
+
+        gameObject.GetComponent<Animator>().SetFloat("runSpeed", animationRunSpeed);
     }
 }

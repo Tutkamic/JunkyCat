@@ -4521,5 +4521,25 @@ PrefabInstance:
       propertyPath: sliderLifeScript
       value: 
       objectReference: {fileID: 2030197538}
+    - target: {fileID: 6063538501377900108, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: energyLossOverTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603620956385931214, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: catMoveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603620956385931214, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: catConstantSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603620956385931214, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: catAndCamMoveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a69f9f8739e864badd300973d37d41, type: 3}

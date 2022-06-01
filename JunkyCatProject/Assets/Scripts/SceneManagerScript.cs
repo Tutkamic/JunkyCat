@@ -42,8 +42,8 @@ public class SceneManagerScript : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "CharacterScene")
         {
-            PlayerChanges(0, "Fonfel");
             CatBodyMaterial.shader = CatBodyShader;
+            PlayerChanges(0, "Fonfel");
         }
     }
 

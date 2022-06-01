@@ -13,7 +13,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     public int kocimietkaAdd = 20;
     public int milkAdd = 10;
-    public int energyLossOverTime = 10;
+    public int energyLossOverTime;
 
     public int energyTime = 1;
 
@@ -61,7 +61,7 @@ public class PlayerStatsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CatSpeedOverEnergy();
+
     }
 
     private void SetStartValue()
@@ -118,8 +118,12 @@ public class PlayerStatsScript : MonoBehaviour
             yield return new WaitForSeconds(energyTime);
             energy -= energyLossOverTime;
 
-            if (energy < 0)
-                energy = 0;
+            if (energy <= 0)
+            {
+                playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
+                catOutOfLife = true;
+                //CAT IS DEAD
+            }
 
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
         }
@@ -133,14 +137,6 @@ public class PlayerStatsScript : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void CatSpeedOverEnergy()
-    {
-        if(playerScript.catHasDied == false && pauseStats == false)
-        {
-            playerScript.playerInputScript.catAndCamMoveSpeed = Mathf.Lerp(1.5f, 4f, playerScript.sliderScript.EnergySlider.normalizedValue);
-            playerScript.playerAnimationScript.animationRunSpeed = Mathf.Lerp(1.5f, 3f, playerScript.sliderScript.EnergySlider.normalizedValue);
-        }
-    }
 
     private void StopStats()
     {
@@ -152,7 +148,7 @@ public class PlayerStatsScript : MonoBehaviour
     private void StartStats()
     {
         StartCoroutine(EnergyOverTime());
-        energyLossOverTime = 10;
+        energyLossOverTime = 3;
         pauseStats = false;
     }
 }
