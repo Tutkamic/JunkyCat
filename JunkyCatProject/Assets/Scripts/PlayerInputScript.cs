@@ -13,6 +13,7 @@ public class PlayerInputScript : MonoBehaviour
     public float catAndCamMoveSpeed = 2;
     public float catConstantSpeed = 55;
 
+
     public Vector3 catVelocity;
 
     private void OnEnable()
@@ -20,6 +21,7 @@ public class PlayerInputScript : MonoBehaviour
         PlayerScript.CatDied += StopMoving;
         SceneManagerScript.Pause += StopMoving;
         SceneManagerScript.Resume += StartMoving;
+        CountDownScript.StartGo += StartMoving;
     }
 
     private void OnDisable()
@@ -27,6 +29,7 @@ public class PlayerInputScript : MonoBehaviour
         PlayerScript.CatDied -= StopMoving;
         SceneManagerScript.Pause -= StopMoving;
         SceneManagerScript.Resume -= StartMoving;
+        CountDownScript.StartGo -= StartMoving;
     }
 
     private void Awake()
@@ -38,6 +41,7 @@ public class PlayerInputScript : MonoBehaviour
     void Start()
     {
         joystick = FindObjectOfType<Joystick>();
+        StopMoving();
     }
 
 

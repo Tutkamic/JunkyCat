@@ -170,8 +170,7 @@ public class SceneManagerScript : MonoBehaviour
 
     void ExitPauseButton()
     {
-        //if (Input.GetKey(KeyCode.Escape)
-             if (Input.GetKeyDown("space"))
+        if (Input.GetKey(KeyCode.Escape))
         {
             if (SceneManager.GetActiveScene().name == "CharacterScene")
                 SceneManager.LoadScene(0);

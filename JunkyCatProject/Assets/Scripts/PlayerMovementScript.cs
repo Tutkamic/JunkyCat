@@ -7,6 +7,8 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidBody;
     [SerializeField] PlayerScript playerScript;
 
+    public float forwardSpeedFactor;
+
     public bool catOutOfMap;
 
     private void OnEnable()
@@ -37,6 +39,8 @@ public class PlayerMovementScript : MonoBehaviour
         PlayerRotate(playerScript.playerInputScript.angle);
 
         PlayerMovableArea();
+
+        ForwardSpeedFactor();
     }
 
     private void FixedUpdate()
@@ -51,7 +55,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void PlayerConstantMove()
     {
-        playerRigidBody.AddForce(new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * playerScript.playerInputScript.catConstantSpeed), ForceMode.Force);
+        playerRigidBody.AddForce(new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * playerScript.playerInputScript.catConstantSpeed * forwardSpeedFactor), ForceMode.Force);
     }
 
 
@@ -86,8 +90,8 @@ public class PlayerMovementScript : MonoBehaviour
         else 
             catOutOfMap = false;
 
-        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 11f)
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, playerScript.cameraScript.transform.position.z + 11f);
+        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 5f)
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, playerScript.cameraScript.transform.position.z + 5f);
     }
 
     private void PlayerFallCheck()
@@ -104,5 +108,16 @@ public class PlayerMovementScript : MonoBehaviour
     private void CatOutOfMapReset()
     {
         catOutOfMap = false;
+    }
+
+    private void ForwardSpeedFactor()
+    {
+        forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 1, 2);
+    }
+
+    private float Remap(float x, float a, float b, float c, float d)
+    {
+        float fraction = (x - a) / (b - a);
+        return Mathf.Lerp(c, d, fraction);
     }
 }

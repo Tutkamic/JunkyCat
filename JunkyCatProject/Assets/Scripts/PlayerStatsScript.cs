@@ -25,6 +25,7 @@ public class PlayerStatsScript : MonoBehaviour
         PlayerScript.CatDied += CatStatReset;
         SceneManagerScript.Pause += StopStats;
         SceneManagerScript.Resume += StartStats;
+        CountDownScript.StartGo += StartStats;
     }
 
     private void OnDisable()
@@ -32,6 +33,7 @@ public class PlayerStatsScript : MonoBehaviour
         PlayerScript.CatDied -= CatStatReset;
         SceneManagerScript.Pause -= StopStats;
         SceneManagerScript.Resume -= StartStats;
+        CountDownScript.StartGo -= StartStats;
     }
 
     private void Awake()
@@ -43,6 +45,8 @@ public class PlayerStatsScript : MonoBehaviour
 
     void Start()
     {
+        StopStats();
+
         SetMaxSliderValue();
         SetStartValue();
         StartCoroutine(EnergyOverTime());

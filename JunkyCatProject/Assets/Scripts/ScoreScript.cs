@@ -7,48 +7,28 @@ using TMPro;
 public class ScoreScript : MonoBehaviour
 {
     public int score = 0;
+    public GameObject cat;
+    [SerializeField] PlayerScript playerScript;
 
-    private void OnEnable()
-    {
-        PlayerScript.CatDied += StopScore;
-        SceneManagerScript.Pause += StopScore;
-        SceneManagerScript.Resume += StartScore;
-    }
 
-    private void OnDisable()
+    private void Awake()
     {
-        PlayerScript.CatDied -= StopScore;
-        SceneManagerScript.Pause -= StopScore;
-        SceneManagerScript.Resume -= StartScore;
+        playerScript = FindObjectOfType<PlayerScript>();
     }
     private void Start()
     {
-        StartCoroutine(ScoreOverTime(1));
+
     }
 
     void Update()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString() + " m";
-    }
-
-    IEnumerator ScoreOverTime(float time)
-    {
-        while (true)
+        if(playerScript.catHasDied == false)
         {
-            yield return new WaitForSeconds(time);
-            score += 1;
-            GameManagerScript.instance.finalScore = score;
+            score = (int)(cat.transform.position.z * 0.5) + 3;
+            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString() + " m";
         }
 
     }
 
-    void StopScore()
-    {
-        StopAllCoroutines();
-    }
 
-    void StartScore()
-    {
-        StartCoroutine(ScoreOverTime(1));
-    }
 }

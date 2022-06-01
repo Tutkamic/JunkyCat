@@ -234,6 +234,8 @@ MonoBehaviour:
   highScoreScreen: {fileID: 279551169}
   highscoreName: {fileID: 1223786429}
   highscoreScore: {fileID: 1288246848}
+  pauseScreen: {fileID: 0}
+  gamePaused: 0
 --- !u!4 &55075140
 Transform:
   m_ObjectHideFlags: 0
@@ -3810,6 +3812,7 @@ GameObject:
   - component: {fileID: 1223786428}
   - component: {fileID: 1223786430}
   - component: {fileID: 1223786429}
+  - component: {fileID: 1223786431}
   m_Layer: 5
   m_Name: HS name
   m_TagString: Untagged
@@ -3835,7 +3838,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: -14.690002, y: 50}
+  m_SizeDelta: {x: -347.69153, y: 85.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223786429
 MonoBehaviour:
@@ -3935,6 +3938,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223786427}
   m_CullTransparentMesh: 1
+--- !u!114 &1223786431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223786427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1001 &1254177499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4171,6 +4188,7 @@ GameObject:
   - component: {fileID: 1288246847}
   - component: {fileID: 1288246849}
   - component: {fileID: 1288246848}
+  - component: {fileID: 1288246850}
   m_Layer: 5
   m_Name: HS score
   m_TagString: Untagged
@@ -4196,7 +4214,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -72.09}
-  m_SizeDelta: {x: -6.600006, y: 50}
+  m_SizeDelta: {x: -347.69153, y: 85.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288246848
 MonoBehaviour:
@@ -4296,6 +4314,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288246846}
   m_CullTransparentMesh: 1
+--- !u!114 &1288246850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288246846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &1347620429
 GameObject:
   m_ObjectHideFlags: 0
