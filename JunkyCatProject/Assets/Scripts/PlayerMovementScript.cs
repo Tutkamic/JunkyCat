@@ -112,8 +112,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void ForwardSpeedFactor()
     {
-        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 3f)
-            forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 1, 2);
+        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 4.8f)
+            forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 4.8f), (playerScript.cameraScript.transform.position.z + 5f), 1, 1.3f);
         else
             forwardSpeedFactor = 1;
     }

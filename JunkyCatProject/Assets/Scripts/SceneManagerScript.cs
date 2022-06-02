@@ -21,7 +21,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public Shader CatBodyShader;
 
-    public GameObject[] manualScreen;
+    public GameObject manualScreen;
 
     public GameObject highScoreScreen;
     public TextMeshProUGUI highscoreName;
@@ -88,17 +88,9 @@ public class SceneManagerScript : MonoBehaviour
     public void GoButton()
     {
         PLaySoundEffect();
-        manualScreen[0].gameObject.SetActive(true);
+        manualScreen.gameObject.SetActive(true);
     }
-    public void ManualScreen1()
-    {
-        manualScreen[1].gameObject.SetActive(true);
-    }
-    public void ManualScreen2()
-    {
-        manualScreen[2].gameObject.SetActive(true);
-    }
-    public void ManualScreen3()
+    public void ManualScreen()
     {
         SceneManager.LoadScene(2);
     }

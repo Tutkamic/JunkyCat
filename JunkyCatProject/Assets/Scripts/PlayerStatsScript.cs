@@ -12,13 +12,17 @@ public class PlayerStatsScript : MonoBehaviour
     public int life;
 
     public int kocimietkaAdd = 20;
-    public int milkAdd = 10;
     public int energyLossOverTime;
 
-    public int energyTime = 1;
+    private int energyTime = 1;
+    private float boostTime = 7f;
 
     public bool catOutOfLife;
     public bool pauseStats;
+    public bool isBoost = false;
+
+    public GameObject boostSphere;
+
 
     private void OnEnable()
     {
@@ -49,7 +53,6 @@ public class PlayerStatsScript : MonoBehaviour
 
         SetMaxSliderValue();
         SetStartValue();
-        StartCoroutine(EnergyOverTime());
     }
 
     private void SetMaxSliderValue()
@@ -79,10 +82,15 @@ public class PlayerStatsScript : MonoBehaviour
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
             StartCoroutine(EnergyOverTime());
         }
-        else if (energy > 0 && energy <= maxEnergy)
+        else if (energy > 0)
         {
             energy += kocimietkaAdd;
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
+
+            if(energy >= maxEnergy && isBoost == false)
+            {
+                StartCoroutine(EnergyBoost());
+            }
         }
     }
 
@@ -118,11 +126,9 @@ public class PlayerStatsScript : MonoBehaviour
             yield return new WaitForSeconds(energyTime);
             energy -= energyLossOverTime;
 
-            if (energy <= 0)
+            if (energy < 0)
             {
-                playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
-                catOutOfLife = true;
-                //CAT IS DEAD
+                energy = 0;
             }
 
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
@@ -150,5 +156,22 @@ public class PlayerStatsScript : MonoBehaviour
         StartCoroutine(EnergyOverTime());
         energyLossOverTime = 3;
         pauseStats = false;
+    }
+
+    IEnumerator EnergyBoost()
+    {
+        isBoost = true;
+        float boostTimeStart = Time.time;
+        boostSphere.SetActive(true);
+
+        while (Time.time - boostTimeStart < boostTime || energy >= maxEnergy)
+        {
+            playerScript.playerCollisionScript.isImmune = true;
+            energy -= energyLossOverTime;
+            yield return new WaitForSeconds(1);
+        }
+        playerScript.playerCollisionScript.isImmune = false;
+        isBoost = false;
+        boostSphere.SetActive(false);
     }
 }
