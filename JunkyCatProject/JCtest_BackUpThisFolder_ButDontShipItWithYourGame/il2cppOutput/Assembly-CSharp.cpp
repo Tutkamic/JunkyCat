@@ -9113,8 +9113,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerStatsScript_Update_m15DDC9B16E6C8D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerStatsScript_SetStartValue_m7CBFE19E47A94B5B03819787C84C1391C4C42242 (PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* __this, const RuntimeMethod* method) 
 {
 	{
-		// energy = 190;
-		__this->___energy_7 = ((int32_t)190);
+		// energy = 100;
+		__this->___energy_7 = ((int32_t)100);
 		// life = 4;
 		__this->___life_8 = 4;
 		// playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
@@ -9187,7 +9187,7 @@ IL_0050:
 		int32_t L_11 = __this->___energy_7;
 		if ((((int32_t)L_11) <= ((int32_t)0)))
 		{
-			goto IL_00c7;
+			goto IL_00b5;
 		}
 	}
 	{
@@ -9207,41 +9207,30 @@ IL_0050:
 		int32_t L_19 = __this->___energy_7;
 		NullCheck(L_15);
 		SliderScript_SetSliderValue_mB842C13F578B83CD87085098D5B1297A3A2A5F41(L_15, L_18, L_19, NULL);
-		// if(energy >= maxEnergy && playerScript.playerCollisionScript.isImmune == false && isBoost == false)
+		// if(energy >= maxEnergy && isBoost == false)
 		int32_t L_20 = __this->___energy_7;
 		int32_t L_21 = __this->___maxEnergy_5;
 		if ((((int32_t)L_20) < ((int32_t)L_21)))
 		{
-			goto IL_00c7;
+			goto IL_00b5;
 		}
 	}
 	{
-		PlayerScript_tE076C73DDA6A5F8E4029DF5D763FB2E5C79B3D35* L_22 = __this->___playerScript_4;
-		NullCheck(L_22);
-		PlayerCollisionScript_t8F271CF0D506CDB81CFF316DCA30B93695F6B755* L_23 = L_22->___playerCollisionScript_10;
-		NullCheck(L_23);
-		bool L_24 = L_23->___isImmune_4;
-		if (L_24)
+		bool L_22 = __this->___isBoost_15;
+		if (L_22)
 		{
-			goto IL_00c7;
-		}
-	}
-	{
-		bool L_25 = __this->___isBoost_15;
-		if (L_25)
-		{
-			goto IL_00c7;
+			goto IL_00b5;
 		}
 	}
 	{
 		// StartCoroutine(EnergyBoost());
-		RuntimeObject* L_26;
-		L_26 = PlayerStatsScript_EnergyBoost_m8CC14DF6C05D280795739940D20CFD618E5A71A7(__this, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_27;
-		L_27 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_26, NULL);
+		RuntimeObject* L_23;
+		L_23 = PlayerStatsScript_EnergyBoost_m8CC14DF6C05D280795739940D20CFD618E5A71A7(__this, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_24;
+		L_24 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_23, NULL);
 	}
 
-IL_00c7:
+IL_00b5:
 	{
 		// }
 		return;
@@ -9690,29 +9679,29 @@ IL_0017:
 		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_4 = V_1;
 		NullCheck(L_4);
 		L_4->___isBoost_15 = (bool)1;
-		// playerScript.playerCollisionScript.isImmune = true;
-		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_5 = V_1;
-		NullCheck(L_5);
-		PlayerScript_tE076C73DDA6A5F8E4029DF5D763FB2E5C79B3D35* L_6 = L_5->___playerScript_4;
-		NullCheck(L_6);
-		PlayerCollisionScript_t8F271CF0D506CDB81CFF316DCA30B93695F6B755* L_7 = L_6->___playerCollisionScript_10;
-		NullCheck(L_7);
-		L_7->___isImmune_4 = (bool)1;
 		// float boostTimeStart = Time.time;
-		float L_8;
-		L_8 = Time_get_time_m0BEE9AACD0723FE414465B77C9C64D12263675F3(NULL);
-		__this->___U3CboostTimeStartU3E5__2_3 = L_8;
+		float L_5;
+		L_5 = Time_get_time_m0BEE9AACD0723FE414465B77C9C64D12263675F3(NULL);
+		__this->___U3CboostTimeStartU3E5__2_3 = L_5;
 		// boostSphere.SetActive(true);
-		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_9 = V_1;
-		NullCheck(L_9);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_10 = L_9->___boostSphere_16;
-		NullCheck(L_10);
-		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_10, (bool)1, NULL);
+		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_6 = V_1;
+		NullCheck(L_6);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7 = L_6->___boostSphere_16;
+		NullCheck(L_7);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_7, (bool)1, NULL);
 		goto IL_0082;
 	}
 
-IL_004f:
+IL_003e:
 	{
+		// playerScript.playerCollisionScript.isImmune = true;
+		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_8 = V_1;
+		NullCheck(L_8);
+		PlayerScript_tE076C73DDA6A5F8E4029DF5D763FB2E5C79B3D35* L_9 = L_8->___playerScript_4;
+		NullCheck(L_9);
+		PlayerCollisionScript_t8F271CF0D506CDB81CFF316DCA30B93695F6B755* L_10 = L_9->___playerCollisionScript_10;
+		NullCheck(L_10);
+		L_10->___isImmune_4 = (bool)1;
 		// energy -= energyLossOverTime;
 		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_11 = V_1;
 		PlayerStatsScript_t02D7FA48221B09501C85A0D5E77BFD17B5F225FF* L_12 = V_1;
@@ -9749,7 +9738,7 @@ IL_0082:
 		float L_20 = L_19->___boostTime_12;
 		if ((((float)((float)il2cpp_codegen_subtract(L_17, L_18))) < ((float)L_20)))
 		{
-			goto IL_004f;
+			goto IL_003e;
 		}
 	}
 	{
@@ -9761,7 +9750,7 @@ IL_0082:
 		int32_t L_24 = L_23->___maxEnergy_5;
 		if ((((int32_t)L_22) >= ((int32_t)L_24)))
 		{
-			goto IL_004f;
+			goto IL_003e;
 		}
 	}
 	{

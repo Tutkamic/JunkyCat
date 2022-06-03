@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &56088849 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8675734939458998849, guid: f7a69f9f8739e864badd300973d37d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879707759133745380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &87515104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,36 +1622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnergySlider: {fileID: 1273114105}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9926069, g: 1, b: 0, a: 1}
-    key2: {r: 0.26833344, g: 1, b: 0, a: 0}
-    key3: {r: 0.26833344, g: 1, b: 0, a: 0}
-    key4: {r: 0.26833344, g: 1, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21856
-    ctime1: 43646
-    ctime2: 65535
-    ctime3: 65535
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
   fill: {fileID: 1869013766}
+  sliderMaterial: {fileID: 2100000, guid: a91b7347853689e4380d5600b5168330, type: 2}
 --- !u!224 &554045658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3235,7 +3213,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 9
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4109,19 +4087,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9830102, g: 1, b: 0.39215684, a: 1}
+  m_Material: {fileID: 2100000, guid: a91b7347853689e4380d5600b5168330, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 272b25843a975f34e9cfdbf7af22fab2, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -4564,5 +4542,30 @@ PrefabInstance:
       propertyPath: sliderLifeScript
       value: 
       objectReference: {fileID: 2030197538}
+    - target: {fileID: 3780287666904659169, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780287667252935029, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073765686032013125, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: boostSound
+      value: 
+      objectReference: {fileID: 56088849}
+    - target: {fileID: 6063538501377900108, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: kocimietkaAdd
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675734939458998849, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a69f9f8739e864badd300973d37d41, type: 3}

@@ -37,7 +37,7 @@ public class PlayerCollisionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider trigger)
     {
-        playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
+
 
         if (trigger.tag == "Kocimietka" || trigger.tag == "Milk")
         {

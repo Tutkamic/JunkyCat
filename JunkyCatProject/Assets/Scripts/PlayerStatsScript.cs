@@ -6,16 +6,15 @@ public class PlayerStatsScript : MonoBehaviour
 {
     [SerializeField] PlayerScript playerScript;
 
-    private int maxEnergy = 200;
+    private int maxEnergy = 100;
     private int maxLife = 9;
     public int energy;
     public int life;
 
-    public int kocimietkaAdd = 20;
+    public int kocimietkaAdd = 10;
     public int energyLossOverTime;
 
     private int energyTime = 1;
-    private float boostTime = 7f;
 
     public bool catOutOfLife;
     public bool pauseStats;
@@ -69,7 +68,7 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void SetStartValue()
     {
-        energy = 100;
+        energy = 40;
         life = 4;
         playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
@@ -87,10 +86,12 @@ public class PlayerStatsScript : MonoBehaviour
             energy += kocimietkaAdd;
             playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
 
-            if(energy >= maxEnergy && isBoost == false)
+            if(energy >= maxEnergy/2 && isBoost == false)
             {
                 StartCoroutine(EnergyBoost());
             }
+            else 
+                playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
         }
     }
 
@@ -154,21 +155,20 @@ public class PlayerStatsScript : MonoBehaviour
     private void StartStats()
     {
         StartCoroutine(EnergyOverTime());
-        energyLossOverTime = 3;
+        energyLossOverTime = 2;
         pauseStats = false;
     }
 
     IEnumerator EnergyBoost()
     {
+        playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.boostSound);
         isBoost = true;
-        float boostTimeStart = Time.time;
         boostSphere.SetActive(true);
 
-        while (Time.time - boostTimeStart < boostTime || energy >= maxEnergy)
+        while (energy >= maxEnergy/2)
         {
             playerScript.playerCollisionScript.isImmune = true;
-            energy -= energyLossOverTime;
-            yield return new WaitForSeconds(1);
+            yield return null;
         }
         playerScript.playerCollisionScript.isImmune = false;
         isBoost = false;

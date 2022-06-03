@@ -7,6 +7,7 @@ public class PlayerSoundManagerScript : MonoBehaviour
 
     public AudioSource addSound;
     public AudioSource hitSound;
+    public AudioSource boostSound;
 
     public void PlaySound(AudioSource sound)
     {
