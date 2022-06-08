@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class MapManagerScript : MonoBehaviour
 {
-    public GameObject[] mapEasy;
-    public GameObject[] mapMiddle;
-    public GameObject[] mapHard;
+    public List<GameObject> easyMaps = new List <GameObject>();
+    public List<GameObject> middleMaps = new List<GameObject>();
+    public List<GameObject> hardMaps = new List<GameObject>();
+
+    public int level = 1;
 
     private Vector3 spawnMapPosition;
-    private Vector3 spawnSecondMapPosition;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        spawnMapPosition = new Vector3(0f, 0f, 32.648f);
-        spawnSecondMapPosition = new Vector3(0f, 0f, 16.324f);
-        Instantiate(mapEasy[Random.Range(0, 2)], spawnSecondMapPosition, Quaternion.identity);
+        spawnMapPosition = new Vector3(0f, 0f, 16.324f);
+        MapCreate();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
@@ -29,11 +29,30 @@ public class MapManagerScript : MonoBehaviour
     {
 
     }
-
     public void MapCreate()
     {
-        Instantiate(mapEasy[Random.Range(0, 2)], spawnMapPosition, Quaternion.identity);
+        switch (level)
+        {
+            case 1:
+                InstantiateMap(easyMaps);
+                break;
+            case 2:
+                InstantiateMap(middleMaps);
+                break;
+            case 3:
+                InstantiateMap(hardMaps);
+                break;
+        }
         spawnMapPosition.z += 16.324f;
+    }
+
+    private void InstantiateMap(List<GameObject> map)
+    {
+        int mapNumber = Random.Range(0, map.Count);
+        Instantiate(map[mapNumber], spawnMapPosition, Quaternion.identity);
+        map.RemoveAt(mapNumber);
+        if (map.Count == 0)
+            level++;
     }
 
 }

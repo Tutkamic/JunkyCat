@@ -52,10 +52,10 @@ public class PlayerAnimationScript : MonoBehaviour
     public void AnimationRunSpeed()
     {
         if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 3f)
-            animationRunSpeed = PlayerMovementScript.Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), 2.0f, 3f);
+            animationRunSpeed = PlayerMovementScript.Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3f), (playerScript.cameraScript.transform.position.z + 5f), playerScript.playerInputScript.catAndCamMoveSpeed, playerScript.playerInputScript.catAndCamMoveSpeed + 1.0f);
         else
-            animationRunSpeed = 2.0f;
+            animationRunSpeed = playerScript.playerInputScript.catAndCamMoveSpeed;
 
-        gameObject.GetComponent<Animator>().SetFloat("runSpeed", animationRunSpeed);
+        gameObject.GetComponent<Animator>().SetFloat("runSpeed", animationRunSpeed * playerScript.playerMovementScript.levelFactor);
     }
 }

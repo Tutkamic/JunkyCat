@@ -70,7 +70,7 @@ public class PlayerInputScript : MonoBehaviour
     void StartMoving()
     {
         catMoveSpeed = 2.5f;
-        catConstantSpeed = 40;
-        catAndCamMoveSpeed = 2.5f;
+        catConstantSpeed = 55;
+        catAndCamMoveSpeed = 2.0f;
     }
 }

@@ -17,6 +17,6 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-            transform.position += new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * camConstantSpeed * playerScript.playerMovementScript.forwardSpeedFactor) * Time.fixedDeltaTime;
+            transform.position += new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * camConstantSpeed * playerScript.playerMovementScript.forwardSpeedFactor * playerScript.playerMovementScript.levelFactor) * Time.fixedDeltaTime;
     }
 }

@@ -70,7 +70,7 @@ public class ScorpionScript : MonoBehaviour
     {
         while (distance < 3 && isGrounded == true)
         {
-            rb.AddForce((cat.transform.position - this.transform.position) * 3.0f, ForceMode.Impulse);
+            rb.AddForce((cat.transform.position - this.transform.position) * 3.5f, ForceMode.Impulse);
             rb.rotation = Quaternion.LookRotation(this.transform.position - cat.transform.position);
             yield return new WaitForSecondsRealtime(0.8f);
         }

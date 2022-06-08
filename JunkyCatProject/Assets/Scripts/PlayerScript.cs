@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] internal PlayerAnimationScript playerAnimationScript;
     [SerializeField] internal PlayerSoundManagerScript playerSoundManagerScript;
 
+    public MapManagerScript mapManagerScript;
+
     [SerializeField] private Rigidbody playerRigidBody;
 
     public Material catMaterial;

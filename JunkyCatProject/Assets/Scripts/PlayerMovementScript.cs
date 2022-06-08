@@ -13,6 +13,7 @@ public class PlayerMovementScript : MonoBehaviour
     public bool catOutOfMap;
     private float distanceToGround = 1.95f;
     public  bool isGrounded;
+    public float levelFactor;
 
     private void OnEnable()
     {
@@ -39,6 +40,8 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
+        levelFactor = 1.0f + (playerScript.mapManagerScript.level * 0.1f);
+
         PlayerFallCheck();
 
         PlayerRotate(playerScript.playerInputScript.angle);
@@ -64,7 +67,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void PlayerConstantMove()
     {
-        playerRigidBody.AddForce(new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * playerScript.playerInputScript.catConstantSpeed * forwardSpeedFactor), ForceMode.Force);
+        playerRigidBody.AddForce(new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * playerScript.playerInputScript.catConstantSpeed * forwardSpeedFactor * levelFactor), ForceMode.Force);
     }
 
 

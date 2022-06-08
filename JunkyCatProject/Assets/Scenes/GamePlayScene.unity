@@ -1022,7 +1022,7 @@ Transform:
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 4.44, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1733316872}
   - {fileID: 1205910990}
@@ -3773,11 +3773,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87394da6e359741429694da68ae4b589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapEasy:
+  easyMaps:
   - {fileID: 5668978646456794566, guid: 27b2ccca2ed9ef742b058a09d3dd54b7, type: 3}
-  - {fileID: 5668978646456794566, guid: 27b2ccca2ed9ef742b058a09d3dd54b7, type: 3}
-  mapMiddle: []
-  mapHard: []
+  - {fileID: 4534390505915942679, guid: 5e33ddaf61f32d246b776460e201bf9c, type: 3}
+  - {fileID: 2203514405442836441, guid: 4d943d6c02f9a804bb083df3753e0d9e, type: 3}
+  middleMaps:
+  - {fileID: 4534390505915942679, guid: d3cd1fed72a51b948a382206f0eb8d1c, type: 3}
+  - {fileID: 2203514405442836441, guid: e1f9e59f302d9e244b5b11afe2c99379, type: 3}
+  hardMaps: []
+  level: 1
 --- !u!4 &1682980262
 Transform:
   m_ObjectHideFlags: 0
@@ -4411,6 +4415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map Start
       objectReference: {fileID: 0}
+    - target: {fileID: 8896479992589132161, guid: 27cb1ae18ef052d4fa5bf71ed59f3f77,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27cb1ae18ef052d4fa5bf71ed59f3f77, type: 3}
 --- !u!1001 &6879707759133745380
@@ -4497,6 +4506,11 @@ PrefabInstance:
       objectReference: {fileID: 554045657}
     - target: {fileID: 3655856706869824916, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
+      propertyPath: mapManagerScript
+      value: 
+      objectReference: {fileID: 1682980261}
+    - target: {fileID: 3655856706869824916, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
       propertyPath: sliderLifeScript
       value: 
       objectReference: {fileID: 2030197538}
@@ -4519,6 +4533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: kocimietkaAdd
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603620956385931214, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: catConstantSpeed
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8675734939458998849, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
