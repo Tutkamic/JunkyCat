@@ -9,6 +9,8 @@ public class MouseScript : MonoBehaviour
     private Rigidbody rb;
     private float distance;
     bool isInRange = false;
+    bool isGrounded;
+    private float distanceToGround = 0.208f;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class MouseScript : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,13 +29,14 @@ public class MouseScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GorundedCheck();
         CatDistance();
     }
 
     void CatDistance()
     {
         distance = Vector3.Distance(cat.transform.position, this.transform.position);
-        if (distance < 2.5 && isInRange == false)
+        if (distance < 2.5 && isInRange == false && isGrounded == true)
         {
             isInRange = true;
             StartCoroutine(MouseRun());
@@ -42,7 +45,7 @@ public class MouseScript : MonoBehaviour
 
     IEnumerator MouseRun()
     {
-        while (distance < 2.5)
+        while (distance < 2.5 && isGrounded == true)
         {
             if (rb.velocity.magnitude < 1)
                 rb.AddForce(this.transform.position - cat.transform.position, ForceMode.Impulse);
@@ -52,6 +55,18 @@ public class MouseScript : MonoBehaviour
             yield return null;
         }
         isInRange = false;
-        rb.velocity = Vector3.zero;
+    }
+
+    private void GorundedCheck()
+    {
+        if (Physics.Raycast(this.transform.position, Vector3.down, distanceToGround + 0.1f))
+        {
+            isGrounded = true;
+        }
+
+        else
+        {
+            isGrounded = false;
+        }
     }
 }

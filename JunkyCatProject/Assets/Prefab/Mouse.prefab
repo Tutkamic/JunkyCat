@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 4885600540371897072}
   - component: {fileID: 8393274387147713500}
   - component: {fileID: -9089032982084492691}
-  - component: {fileID: 5558784177673498711}
+  - component: {fileID: 8824130614110163237}
   - component: {fileID: -5418665704317613620}
   m_Layer: 9
   m_Name: Mouse
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a668c6360bbd16843801e6f66df8f509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &5558784177673498711
-BoxCollider:
+--- !u!136 &8824130614110163237
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -384,9 +384,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.9033939, z: 1.4468026}
-  m_Center: {x: 0, y: 0.41460082, z: 0.2676791}
+  m_Radius: 0.41776899
+  m_Height: 1.45
+  m_Direction: 2
+  m_Center: {x: -0.00126338, y: 0.3667682, z: 0.24696541}
 --- !u!54 &-5418665704317613620
 Rigidbody:
   m_ObjectHideFlags: 0

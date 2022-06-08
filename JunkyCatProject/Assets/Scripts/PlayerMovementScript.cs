@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerMovementScript : MonoBehaviour
     public float forwardSpeedFactor;
 
     public bool catOutOfMap;
+    private float distanceToGround = 1.95f;
+    public  bool isGrounded;
 
     private void OnEnable()
     {
@@ -36,20 +39,26 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
+        PlayerFallCheck();
+
         PlayerRotate(playerScript.playerInputScript.angle);
 
-        PlayerMovableArea();
+        if (isGrounded)
+        {
+            PlayerMovableArea();
+        }
 
         ForwardSpeedFactor();
     }
 
     private void FixedUpdate()
     {
-        if (playerScript.catHasDied == false)
+        GorundedCheck();
+
+        if (playerScript.catHasDied == false && isGrounded == true)
         {
             PlayerConstantMove();
             PLayerMove();
-            PlayerFallCheck();
         }
     }
 
@@ -96,7 +105,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private void PlayerFallCheck()
     {
-        if (this.transform.position.y < -0.5)
+        if (this.transform.position.y < -2.0)
         {
             catOutOfMap = true;
             //CAT IS DEAD
@@ -122,5 +131,19 @@ public class PlayerMovementScript : MonoBehaviour
     {
         float fraction = (x - a) / (b - a);
         return Mathf.Lerp(c, d, fraction);
+    }
+
+    private void GorundedCheck()
+    {
+        if (Physics.Raycast(this.transform.position, Vector3.down, distanceToGround + 0.1f))
+        {
+            isGrounded = true;
+        }
+
+        else
+        {
+            isGrounded = false;
+        }
+
     }
 }

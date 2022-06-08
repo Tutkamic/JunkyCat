@@ -13,6 +13,9 @@ public class ScorpionScript : MonoBehaviour
     float biteTime;
     float immuneTime = 2f;
 
+    bool isGrounded;
+    private float distanceToGround = 0.95f;
+
     private void OnEnable()
     {
         PlayerScript.CatDied += StopAttacking;
@@ -47,30 +50,32 @@ public class ScorpionScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isCatKilled == false)
+        GorundedCheck();
+
+        if (isCatKilled == false)
          CatDistance();
     }
 
     void CatDistance()
     {
         distance = Vector3.Distance(cat.transform.position, this.transform.position);
-        if (distance < 2.5 && isInRange == false && isBite == false)
+        if (distance < 2.5 && isInRange == false && isBite == false && isGrounded == true)
         {
             isInRange = true;
-            StartCoroutine(MouseRun());
+            StartCoroutine(ScorpionRun());
         }
     }
 
-    IEnumerator MouseRun()
+    IEnumerator ScorpionRun()
     {
-        while (distance < 3)
+        while (distance < 3 && isGrounded == true)
         {
-            rb.AddForce((cat.transform.position - this.transform.position) * 3.5f, ForceMode.Impulse);
+            rb.AddForce((cat.transform.position - this.transform.position) * 3.0f, ForceMode.Impulse);
             rb.rotation = Quaternion.LookRotation(this.transform.position - cat.transform.position);
-            yield return new WaitForSecondsRealtime(0.5f);
+            yield return new WaitForSecondsRealtime(0.8f);
         }
         isInRange = false;
-        rb.velocity = Vector3.zero;
+       // rb.velocity = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -88,5 +93,18 @@ public class ScorpionScript : MonoBehaviour
     {
         StopAllCoroutines();
         isCatKilled = true;
+    }
+
+    private void GorundedCheck()
+    {
+        if (Physics.Raycast(this.transform.position, Vector3.down, distanceToGround + 0.1f))
+        {
+            isGrounded = true;
+        }
+
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
