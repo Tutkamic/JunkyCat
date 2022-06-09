@@ -9,6 +9,7 @@ public class MapManagerScript : MonoBehaviour
     public List<GameObject> hardMaps = new List<GameObject>();
 
     public int level = 1;
+    public int levelSpeedFactor = 1;
 
     private Vector3 spawnMapPosition;
 
@@ -35,12 +36,15 @@ public class MapManagerScript : MonoBehaviour
         {
             case 1:
                 InstantiateMap(easyMaps);
+                levelSpeedFactor = 1;
                 break;
             case 2:
                 InstantiateMap(middleMaps);
+                levelSpeedFactor = 2;
                 break;
             case 3:
                 InstantiateMap(hardMaps);
+                levelSpeedFactor = 3;
                 break;
         }
         spawnMapPosition.z += 16.324f;

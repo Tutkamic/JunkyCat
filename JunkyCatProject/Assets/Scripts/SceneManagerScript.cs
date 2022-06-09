@@ -162,7 +162,7 @@ public class SceneManagerScript : MonoBehaviour
 
     void ExitPauseButton()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKeyDown("space"))
         {
             if (SceneManager.GetActiveScene().name == "CharacterScene")
                 SceneManager.LoadScene(0);
@@ -176,7 +176,7 @@ public class SceneManagerScript : MonoBehaviour
 
     public void PauseStart()
     {
-        if (gamePaused == false)
+        if (gamePaused == false && playerScript.catHasDied == false && playerScript.countDownScript.countdownActive == false)
         {
             gamePaused = true;
             pauseScreen.SetActive(true);

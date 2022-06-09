@@ -9,6 +9,7 @@ public class CountDownScript : MonoBehaviour
     int count;
     public delegate void StartGame();
     public static event StartGame StartGo;
+    public bool countdownActive;
 
     // Start is called before the first frame update
 
@@ -18,6 +19,7 @@ public class CountDownScript : MonoBehaviour
     }
     void Start()
     {
+        countdownActive = true;
         StartCoroutine(CountDown());   
     }
 
@@ -39,8 +41,9 @@ public class CountDownScript : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         gameObject.SetActive(false);
+        countdownActive = false;
 
-        if(StartGo != null)
+        if (StartGo != null)
             StartGo();
     }
 }

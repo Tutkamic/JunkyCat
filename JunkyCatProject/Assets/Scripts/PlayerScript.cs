@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] internal PlayerStatsScript playerStatsScript;
     [SerializeField] internal PlayerAnimationScript playerAnimationScript;
     [SerializeField] internal PlayerSoundManagerScript playerSoundManagerScript;
+    [SerializeField] internal CountDownScript countDownScript;
 
     public MapManagerScript mapManagerScript;
 
@@ -38,6 +39,7 @@ public class PlayerScript : MonoBehaviour
         playerStatsScript = GetComponent<PlayerStatsScript>();
         playerAnimationScript = GetComponent<PlayerAnimationScript>();
         playerSoundManagerScript = GetComponent<PlayerSoundManagerScript>();
+        countDownScript = FindObjectOfType<CountDownScript>();
         catHasDied = false;
     }
 

@@ -40,7 +40,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
-        levelFactor = 1.0f + (playerScript.mapManagerScript.level * 0.1f);
+        levelFactor = 1.0f + (playerScript.mapManagerScript.levelSpeedFactor * 0.2f);
 
         PlayerFallCheck();
 

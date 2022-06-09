@@ -806,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountText: {fileID: 1413169613}
+  countdownActive: 0
 --- !u!1 &323693820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +2934,7 @@ GameObject:
   - component: {fileID: 1261915577}
   - component: {fileID: 1261915579}
   - component: {fileID: 1261915578}
+  - component: {fileID: 1261915580}
   m_Layer: 5
   m_Name: LifesBar
   m_TagString: Untagged
@@ -2973,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9009434, b: 0.9009434, a: 1}
+  m_Color: {r: 1, g: 0.06132078, b: 0.09007308, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2998,6 +3000,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261915576}
   m_CullTransparentMesh: 1
+--- !u!114 &1261915580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261915576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1273114103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,11 +3794,15 @@ MonoBehaviour:
   - {fileID: 5668978646456794566, guid: 27b2ccca2ed9ef742b058a09d3dd54b7, type: 3}
   - {fileID: 4534390505915942679, guid: 5e33ddaf61f32d246b776460e201bf9c, type: 3}
   - {fileID: 2203514405442836441, guid: 4d943d6c02f9a804bb083df3753e0d9e, type: 3}
+  - {fileID: 4534390505915942679, guid: 845dfa1d8c40ed94b9eb9f9c3b50f74b, type: 3}
   middleMaps:
   - {fileID: 4534390505915942679, guid: d3cd1fed72a51b948a382206f0eb8d1c, type: 3}
   - {fileID: 2203514405442836441, guid: e1f9e59f302d9e244b5b11afe2c99379, type: 3}
+  - {fileID: 6748954517646132739, guid: 12b32a712644f9249a223dedd9625b2a, type: 3}
+  - {fileID: 2386831701829197734, guid: 06ce7c11db93798478d10461efa8d99c, type: 3}
   hardMaps: []
   level: 1
+  levelSpeedFactor: 1
 --- !u!4 &1682980262
 Transform:
   m_ObjectHideFlags: 0
