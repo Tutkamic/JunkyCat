@@ -7,17 +7,18 @@ public class SliderScript : MonoBehaviour
 {
     public Slider EnergySlider;
     public Image fill;
-    public Material sliderMaterial;
+    public Gradient gradient;
 
     public void SetMaxSliderValue(Slider slider, int maxValue)
     {
         slider.maxValue = maxValue;
         slider.value = maxValue;
+        gradient.Evaluate(0.5f);
     }
     public void SetSliderValue(Slider slider, int value)
     {
-        slider.value = value;
-        sliderMaterial.SetFloat("_gradientEnergy", slider.normalizedValue);    
+        slider.value = value;  
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
 }
