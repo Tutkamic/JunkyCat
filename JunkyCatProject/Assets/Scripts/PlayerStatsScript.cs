@@ -14,11 +14,11 @@ public class PlayerStatsScript : MonoBehaviour
     public int kocimietkaAdd = 10;
     public int energyLossOverTime;
 
-    private int energyTime = 1;
-
     public bool catOutOfLife;
     public bool pauseStats;
     public bool isBoost = false;
+
+    private float boostTime = 5f;
 
     public GameObject boostSphere;
 
@@ -68,40 +68,40 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void SetStartValue()
     {
-        energy = 40;
+        energy = 90;
         life = 4;
         playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }
     public void EnergyAdd()
     {
-        if (energy <= 0)
-        {
-            energy += kocimietkaAdd;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
-            StartCoroutine(EnergyOverTime());
-        }
-        else if (energy > 0)
-        {
-            energy += kocimietkaAdd;
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
+        playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
+        energy += kocimietkaAdd;
 
-            if(energy >= maxEnergy/2 && isBoost == false)
+        if (energy >= maxEnergy)
+        {
+            energy = 0;
+            if (life < maxLife)
             {
-                StartCoroutine(EnergyBoost());
+                life++;
+                playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
             }
-            else 
-                playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
         }
+        playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }
 
     public void MouseAdd()
     {
-        if (life < maxLife)
+        if(isBoost == false)
         {
-            life++;
-            playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
+            StartCoroutine(EnergyBoost());
         }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(EnergyBoost());
+        }
+
     }
 
     public void GetHit()
@@ -120,21 +120,6 @@ public class PlayerStatsScript : MonoBehaviour
         }
     }
 
-    IEnumerator EnergyOverTime()
-    {
-        while (energy > 0)
-        {
-            yield return new WaitForSeconds(energyTime);
-            energy -= energyLossOverTime;
-
-            if (energy < 0)
-            {
-                energy = 0;
-            }
-
-            playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
-        }
-    }
 
     private void CatStatReset()
     {
@@ -154,7 +139,6 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void StartStats()
     {
-        StartCoroutine(EnergyOverTime());
         energyLossOverTime = 2;
         pauseStats = false;
     }
@@ -164,8 +148,9 @@ public class PlayerStatsScript : MonoBehaviour
         playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.boostSound);
         isBoost = true;
         boostSphere.SetActive(true);
+        float time = Time.time;
 
-        while (energy >= maxEnergy/2)
+        while (Time.time - time < boostTime)
         {
             playerScript.playerCollisionScript.isImmune = true;
             yield return null;
