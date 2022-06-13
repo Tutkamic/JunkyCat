@@ -26,7 +26,7 @@ public class ScoreScript : MonoBehaviour
     {
         if(playerScript.catHasDied == false)
         {
-            walkScore = (int)(cat.transform.position.z * 0.5) + 3;
+            walkScore = (int)(cat.transform.position.z * 0.5) + 2;
             score = walkScore + energyScore;
             gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
             GameManagerScript.instance.finalScore = score;
