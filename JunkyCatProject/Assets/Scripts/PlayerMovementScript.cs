@@ -102,8 +102,8 @@ public class PlayerMovementScript : MonoBehaviour
         else 
             catOutOfMap = false;
 
-        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 5f)
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, playerScript.cameraScript.transform.position.z + 5f);
+        if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 4f)
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, playerScript.cameraScript.transform.position.z + 4f);
     }
 
     private void PlayerFallCheck()
@@ -125,7 +125,7 @@ public class PlayerMovementScript : MonoBehaviour
     private void ForwardSpeedFactor()
     {
         if (this.transform.position.z > playerScript.cameraScript.transform.position.z + 4.8f)
-            forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 4.8f), (playerScript.cameraScript.transform.position.z + 5f), 1, 1.3f);
+            forwardSpeedFactor = Remap(this.transform.position.z, (playerScript.cameraScript.transform.position.z + 3.8f), (playerScript.cameraScript.transform.position.z + 4f), 1, 1.3f);
         else
             forwardSpeedFactor = 1;
     }

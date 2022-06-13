@@ -13,7 +13,6 @@ public class SliderScript : MonoBehaviour
     {
         slider.maxValue = maxValue;
         slider.value = maxValue;
-        gradient.Evaluate(0f);
     }
     public void SetSliderValue(Slider slider, int value)
     {

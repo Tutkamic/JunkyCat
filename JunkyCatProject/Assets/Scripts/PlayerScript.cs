@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] internal PlayerAnimationScript playerAnimationScript;
     [SerializeField] internal PlayerSoundManagerScript playerSoundManagerScript;
     [SerializeField] internal CountDownScript countDownScript;
+    [SerializeField] internal ScoreScript scoreScript;
 
     public MapManagerScript mapManagerScript;
 
@@ -33,6 +34,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
+
         playerInputScript = GetComponent<PlayerInputScript>();
         playerMovementScript = GetComponent<PlayerMovementScript>();
         playerCollisionScript = GetComponent<PlayerCollisionScript>();
@@ -40,6 +42,7 @@ public class PlayerScript : MonoBehaviour
         playerAnimationScript = GetComponent<PlayerAnimationScript>();
         playerSoundManagerScript = GetComponent<PlayerSoundManagerScript>();
         countDownScript = FindObjectOfType<CountDownScript>();
+        scoreScript = FindObjectOfType<ScoreScript>();
         catHasDied = false;
     }
 

@@ -11,8 +11,7 @@ public class PlayerStatsScript : MonoBehaviour
     public int energy;
     public int life;
 
-    public int kocimietkaAdd = 10;
-    public int energyLossOverTime;
+    public int kocimietkaAdd = 20;
 
     public bool catOutOfLife;
     public bool pauseStats;
@@ -68,13 +67,14 @@ public class PlayerStatsScript : MonoBehaviour
 
     private void SetStartValue()
     {
-        energy = 90;
+        energy = 0;
         life = 4;
         playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }
     public void EnergyAdd()
     {
+        playerScript.scoreScript.energyScore += 10;
         playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
         energy += kocimietkaAdd;
 
@@ -133,13 +133,11 @@ public class PlayerStatsScript : MonoBehaviour
     private void StopStats()
     {
         StopAllCoroutines();
-        energyLossOverTime = 0;
         pauseStats = true;
     }
 
     private void StartStats()
     {
-        energyLossOverTime = 2;
         pauseStats = false;
     }
 

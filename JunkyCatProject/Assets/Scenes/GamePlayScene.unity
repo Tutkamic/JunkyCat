@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 350 m
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6cb009a3ff60dc4ca83152cefc1ce0e, type: 2}
   m_sharedMaterial: {fileID: -6834388886350528339, guid: d6cb009a3ff60dc4ca83152cefc1ce0e,
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  energyScore: 0
   cat: {fileID: 1464493176}
   playerScript: {fileID: 0}
 --- !u!1 &524456725
@@ -4501,7 +4502,7 @@ PrefabInstance:
     - target: {fileID: 2656038650846547967, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2656038650846547967, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
@@ -4581,7 +4582,7 @@ PrefabInstance:
     - target: {fileID: 6063538501377900108, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
       propertyPath: kocimietkaAdd
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7603620956385931214, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}

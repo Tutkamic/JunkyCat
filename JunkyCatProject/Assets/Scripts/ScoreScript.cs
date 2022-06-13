@@ -7,6 +7,8 @@ using TMPro;
 public class ScoreScript : MonoBehaviour
 {
     public int score = 0;
+    private int walkScore = 0;
+    public int energyScore = 0;
     public GameObject cat;
     [SerializeField] PlayerScript playerScript;
 
@@ -24,8 +26,9 @@ public class ScoreScript : MonoBehaviour
     {
         if(playerScript.catHasDied == false)
         {
-            score = (int)(cat.transform.position.z * 0.5) + 3;
-            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString() + " m";
+            walkScore = (int)(cat.transform.position.z * 0.5) + 3;
+            score = walkScore + energyScore;
+            gameObject.GetComponent<TextMeshProUGUI>().text = score.ToString();
             GameManagerScript.instance.finalScore = score;
         }
 

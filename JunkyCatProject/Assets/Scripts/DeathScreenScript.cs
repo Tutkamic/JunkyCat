@@ -44,7 +44,7 @@ public class DeathScreenScript : MonoBehaviour
     void DeathScreen()
     { 
         deathScreen.gameObject.SetActive(true);
-        finalScoreText.text = GameManagerScript.instance.finalScore.ToString() + " m";
+        finalScoreText.text = GameManagerScript.instance.finalScore.ToString();
 
         if(GameManagerScript.instance.finalScore > GameManagerScript.instance.highscore)
         {
