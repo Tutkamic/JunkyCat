@@ -2825,6 +2825,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "mapa p\u0142aska"
       objectReference: {fileID: 0}
+    - target: {fileID: 1331595686042299262, guid: 84adb4230cfec0f4d871783f1d781507,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d8b072938e66414ca33aaf75e9098fb, type: 2}
     - target: {fileID: 4250499561839965445, guid: 84adb4230cfec0f4d871783f1d781507,
         type: 3}
       propertyPath: m_Size.z

@@ -68,7 +68,7 @@ public class PlayerStatsScript : MonoBehaviour
     private void SetStartValue()
     {
         energy = 0;
-        life = 4;
+        life = 3;
         playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
         playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }

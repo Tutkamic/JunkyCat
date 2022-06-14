@@ -2418,18 +2418,22 @@ struct JoystickSetterExample_t496DF774BC6E49244893C8EBE104A7972836817E  : public
 // MapManagerScript
 struct MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::beginMaps
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___beginMaps_4;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::easyMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___easyMaps_4;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___easyMaps_5;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::middleMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___middleMaps_5;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___middleMaps_6;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::hardMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___hardMaps_6;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___hardMaps_7;
+	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::impossibleMaps
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___impossibleMaps_8;
 	// System.Int32 MapManagerScript::level
-	int32_t ___level_7;
-	// System.Int32 MapManagerScript::levelSpeedFactor
-	int32_t ___levelSpeedFactor_8;
+	int32_t ___level_9;
+	// System.Single MapManagerScript::levelSpeedFactor
+	float ___levelSpeedFactor_10;
 	// UnityEngine.Vector3 MapManagerScript::spawnMapPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnMapPosition_9;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnMapPosition_11;
 };
 
 // MapScript
@@ -6607,7 +6611,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MapManagerScript_Start_m7F6AB4A97BEA0E6E
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
 		memset((&L_0), 0, sizeof(L_0));
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_0), (0.0f), (0.0f), (16.3239994f), /*hidden argument*/NULL);
-		__this->___spawnMapPosition_9 = L_0;
+		__this->___spawnMapPosition_11 = L_0;
 		// MapCreate();
 		MapManagerScript_MapCreate_m2C6AF022693ED78ED59B874B133093F0F364540D(__this, NULL);
 		// }
@@ -6636,68 +6640,98 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MapManagerScript_MapCreate_m2C6AF022693E
 	int32_t V_0 = 0;
 	{
 		// switch (level)
-		int32_t L_0 = __this->___level_7;
+		int32_t L_0 = __this->___level_9;
 		V_0 = L_0;
 		int32_t L_1 = V_0;
 		switch (((int32_t)il2cpp_codegen_subtract(L_1, 1)))
 		{
 			case 0:
 			{
-				goto IL_001d;
+				goto IL_0025;
 			}
 			case 1:
 			{
-				goto IL_0032;
+				goto IL_003e;
 			}
 			case 2:
 			{
-				goto IL_0047;
+				goto IL_0057;
+			}
+			case 3:
+			{
+				goto IL_0070;
+			}
+			case 4:
+			{
+				goto IL_0089;
 			}
 		}
 	}
 	{
-		goto IL_005a;
+		goto IL_00a0;
 	}
 
-IL_001d:
+IL_0025:
+	{
+		// InstantiateMap(beginMaps);
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_2 = __this->___beginMaps_4;
+		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_2, NULL);
+		// levelSpeedFactor = 0.8f;
+		__this->___levelSpeedFactor_10 = (0.800000012f);
+		// break;
+		goto IL_00a0;
+	}
+
+IL_003e:
 	{
 		// InstantiateMap(easyMaps);
-		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_2 = __this->___easyMaps_4;
-		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_2, NULL);
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_3 = __this->___easyMaps_5;
+		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_3, NULL);
 		// levelSpeedFactor = 1;
-		__this->___levelSpeedFactor_8 = 1;
+		__this->___levelSpeedFactor_10 = (1.0f);
 		// break;
-		goto IL_005a;
+		goto IL_00a0;
 	}
 
-IL_0032:
+IL_0057:
 	{
 		// InstantiateMap(middleMaps);
-		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_3 = __this->___middleMaps_5;
-		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_3, NULL);
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_4 = __this->___middleMaps_6;
+		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_4, NULL);
 		// levelSpeedFactor = 2;
-		__this->___levelSpeedFactor_8 = 2;
+		__this->___levelSpeedFactor_10 = (2.0f);
 		// break;
-		goto IL_005a;
+		goto IL_00a0;
 	}
 
-IL_0047:
+IL_0070:
 	{
 		// InstantiateMap(hardMaps);
-		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_4 = __this->___hardMaps_6;
-		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_4, NULL);
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_5 = __this->___hardMaps_7;
+		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_5, NULL);
 		// levelSpeedFactor = 3;
-		__this->___levelSpeedFactor_8 = 3;
+		__this->___levelSpeedFactor_10 = (3.0f);
+		// break;
+		goto IL_00a0;
 	}
 
-IL_005a:
+IL_0089:
+	{
+		// InstantiateMap(impossibleMaps);
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_6 = __this->___impossibleMaps_8;
+		MapManagerScript_InstantiateMap_m2C6E7914E6D8EF9A136A3D20BCFF3FCBC1B54E69(__this, L_6, NULL);
+		// levelSpeedFactor = 4;
+		__this->___levelSpeedFactor_10 = (4.0f);
+	}
+
+IL_00a0:
 	{
 		// spawnMapPosition.z += 16.324f;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_5 = (&__this->___spawnMapPosition_9);
-		float* L_6 = (&L_5->___z_4);
-		float* L_7 = L_6;
-		float L_8 = *((float*)L_7);
-		*((float*)L_7) = (float)((float)il2cpp_codegen_add(L_8, (16.3239994f)));
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* L_7 = (&__this->___spawnMapPosition_11);
+		float* L_8 = (&L_7->___z_4);
+		float* L_9 = L_8;
+		float L_10 = *((float*)L_9);
+		*((float*)L_9) = (float)((float)il2cpp_codegen_add(L_10, (16.3239994f)));
 		// }
 		return;
 	}
@@ -6731,7 +6765,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MapManagerScript_InstantiateMap_m2C6E791
 		NullCheck(L_3);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5;
 		L_5 = List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979(L_3, L_4, List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979_RuntimeMethod_var);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = __this->___spawnMapPosition_9;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_6 = __this->___spawnMapPosition_11;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_7;
 		L_7 = Quaternion_get_identity_mB9CAEEB21BC81352CBF32DB9664BFC06FA7EA27B_inline(NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -6754,8 +6788,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MapManagerScript_InstantiateMap_m2C6E791
 	}
 	{
 		// level++;
-		int32_t L_13 = __this->___level_7;
-		__this->___level_7 = ((int32_t)il2cpp_codegen_add(L_13, 1));
+		int32_t L_13 = __this->___level_9;
+		__this->___level_9 = ((int32_t)il2cpp_codegen_add(L_13, 1));
 	}
 
 IL_0042:
@@ -6775,28 +6809,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MapManagerScript__ctor_m27C1BA3DE36A14FB
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		// public List<GameObject> easyMaps = new List <GameObject>();
+		// public List<GameObject> beginMaps = new List<GameObject>();
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_0 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
 		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_0, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
-		__this->___easyMaps_4 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___easyMaps_4), (void*)L_0);
-		// public List<GameObject> middleMaps = new List<GameObject>();
+		__this->___beginMaps_4 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___beginMaps_4), (void*)L_0);
+		// public List<GameObject> easyMaps = new List <GameObject>();
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_1 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
 		NullCheck(L_1);
 		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_1, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
-		__this->___middleMaps_5 = L_1;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___middleMaps_5), (void*)L_1);
-		// public List<GameObject> hardMaps = new List<GameObject>();
+		__this->___easyMaps_5 = L_1;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___easyMaps_5), (void*)L_1);
+		// public List<GameObject> middleMaps = new List<GameObject>();
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_2 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
 		NullCheck(L_2);
 		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_2, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
-		__this->___hardMaps_6 = L_2;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___hardMaps_6), (void*)L_2);
+		__this->___middleMaps_6 = L_2;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___middleMaps_6), (void*)L_2);
+		// public List<GameObject> hardMaps = new List<GameObject>();
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_3 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
+		NullCheck(L_3);
+		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_3, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
+		__this->___hardMaps_7 = L_3;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___hardMaps_7), (void*)L_3);
+		// public List<GameObject> impossibleMaps = new List<GameObject>();
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_4 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
+		NullCheck(L_4);
+		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_4, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
+		__this->___impossibleMaps_8 = L_4;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___impossibleMaps_8), (void*)L_4);
 		// public int level = 1;
-		__this->___level_7 = 1;
-		// public int levelSpeedFactor = 1;
-		__this->___levelSpeedFactor_8 = 1;
+		__this->___level_9 = 1;
+		// public float levelSpeedFactor = 1;
+		__this->___levelSpeedFactor_10 = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
@@ -8320,8 +8366,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerMovementScript_Update_mEE81E4C81F2
 		NullCheck(L_0);
 		MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E* L_1 = L_0->___mapManagerScript_16;
 		NullCheck(L_1);
-		int32_t L_2 = L_1->___levelSpeedFactor_8;
-		__this->___levelFactor_10 = ((float)il2cpp_codegen_add((1.0f), ((float)il2cpp_codegen_multiply(((float)L_2), (0.200000003f)))));
+		float L_2 = L_1->___levelSpeedFactor_10;
+		__this->___levelFactor_10 = ((float)il2cpp_codegen_add((1.0f), ((float)il2cpp_codegen_multiply(L_2, (0.200000003f)))));
 		// PlayerFallCheck();
 		PlayerMovementScript_PlayerFallCheck_mC4EDAF463E4ADF11719D522364B9AAE72E2E1360(__this, NULL);
 		// PlayerRotate(playerScript.playerInputScript.angle);
@@ -8335,7 +8381,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerMovementScript_Update_mEE81E4C81F2
 		bool L_6 = __this->___isGrounded_9;
 		if (!L_6)
 		{
-			goto IL_004d;
+			goto IL_004c;
 		}
 	}
 	{
@@ -8343,7 +8389,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerMovementScript_Update_mEE81E4C81F2
 		PlayerMovementScript_PlayerMovableArea_mA6E09565739AF5DC8CE17697576CE2ABF58F3367(__this, NULL);
 	}
 
-IL_004d:
+IL_004c:
 	{
 		// ForwardSpeedFactor();
 		PlayerMovementScript_ForwardSpeedFactor_m0486D844FDD5A2DC4C89FC0411EC8DDFBFAB5B39(__this, NULL);
@@ -9432,8 +9478,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerStatsScript_SetStartValue_m7CBFE19
 	{
 		// energy = 0;
 		__this->___energy_7 = 0;
-		// life = 4;
-		__this->___life_8 = 4;
+		// life = 3;
+		__this->___life_8 = 3;
 		// playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
 		PlayerScript_tE076C73DDA6A5F8E4029DF5D763FB2E5C79B3D35* L_0 = __this->___playerScript_4;
 		NullCheck(L_0);
@@ -10899,7 +10945,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScoreScript_Update_m1480843494E984F9EE88
 		}
 	}
 	{
-		// walkScore = (int)(cat.transform.position.z * 0.5) + 3;
+		// walkScore = (int)(cat.transform.position.z * 0.5) + 2;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = __this->___cat_7;
 		NullCheck(L_2);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
@@ -10908,7 +10954,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScoreScript_Update_m1480843494E984F9EE88
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
 		L_4 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_3, NULL);
 		float L_5 = L_4.___z_4;
-		__this->___walkScore_5 = ((int32_t)il2cpp_codegen_add(il2cpp_codegen_cast_double_to_int<int32_t>(((double)il2cpp_codegen_multiply(((double)L_5), (0.5)))), 3));
+		__this->___walkScore_5 = ((int32_t)il2cpp_codegen_add(il2cpp_codegen_cast_double_to_int<int32_t>(((double)il2cpp_codegen_multiply(((double)L_5), (0.5)))), 2));
 		// score = walkScore + energyScore;
 		int32_t L_6 = __this->___walkScore_5;
 		int32_t L_7 = __this->___energyScore_6;

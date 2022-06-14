@@ -22601,18 +22601,22 @@ struct LightAnchor_tE8B22E6927BBBD3530A56EB0EB4F4A523FABCFAD  : public MonoBehav
 // MapManagerScript
 struct MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::beginMaps
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___beginMaps_4;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::easyMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___easyMaps_4;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___easyMaps_5;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::middleMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___middleMaps_5;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___middleMaps_6;
 	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::hardMaps
-	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___hardMaps_6;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___hardMaps_7;
+	// System.Collections.Generic.List`1<UnityEngine.GameObject> MapManagerScript::impossibleMaps
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___impossibleMaps_8;
 	// System.Int32 MapManagerScript::level
-	int32_t ___level_7;
-	// System.Int32 MapManagerScript::levelSpeedFactor
-	int32_t ___levelSpeedFactor_8;
+	int32_t ___level_9;
+	// System.Single MapManagerScript::levelSpeedFactor
+	float ___levelSpeedFactor_10;
 	// UnityEngine.Vector3 MapManagerScript::spawnMapPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnMapPosition_9;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___spawnMapPosition_11;
 };
 
 // MapScript
@@ -28454,9 +28458,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4538[4] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4539[6] = 
 {
 	static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0_StaticFields, ___U3CinstanceU3Ek__BackingField_4)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___playerName_5)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___highscorePlayerName_6)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___playerMaterialTexture_7)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___finalScore_8)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___highscore_9)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4540[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4540[8] = 
 {
-	static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___easyMaps_4)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___middleMaps_5)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___hardMaps_6)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___level_7)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___levelSpeedFactor_8)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___spawnMapPosition_9)),};
+	static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___beginMaps_4)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___easyMaps_5)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___middleMaps_6)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___hardMaps_7)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___impossibleMaps_8)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___level_9)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___levelSpeedFactor_10)),static_cast<int32_t>(offsetof(MapManagerScript_t47046C88A87A26F5DC58FA2CB393B460083C2F7E, ___spawnMapPosition_11)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4541[2] = 
 {
 	static_cast<int32_t>(offsetof(MapScript_tFEE449D307E272AE447ED61B3EBC149502115590, ___cameraScript_4)),static_cast<int32_t>(offsetof(MapScript_tFEE449D307E272AE447ED61B3EBC149502115590, ___mapManagerScript_5)),};
