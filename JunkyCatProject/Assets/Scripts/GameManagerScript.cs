@@ -38,6 +38,9 @@ public class GameManagerScript : MonoBehaviour
     {
         highscore = PlayerPrefs.GetInt("highscore");
         highscorePlayerName = PlayerPrefs.GetString("highscoreName");
+
+       // PlayerPrefs.DeleteKey("highscore");
+       // PlayerPrefs.DeleteKey("highscoreName");
     }
 
     void SaveHighscore()

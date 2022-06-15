@@ -9,6 +9,7 @@ public class MapManagerScript : MonoBehaviour
     public List<GameObject> middleMaps = new List<GameObject>();
     public List<GameObject> hardMaps = new List<GameObject>();
     public List<GameObject> impossibleMaps = new List<GameObject>();
+    public GameObject finishMap;
 
     public int level = 1;
     public float levelSpeedFactor = 1;
@@ -54,7 +55,11 @@ public class MapManagerScript : MonoBehaviour
                 break;
             case 5:
                 InstantiateMap(impossibleMaps);
-                levelSpeedFactor = 4;
+                levelSpeedFactor = 3;
+                break;
+            case 6:
+                Instantiate(finishMap, spawnMapPosition, Quaternion.identity);
+                levelSpeedFactor = 1;
                 break;
         }
         spawnMapPosition.z += 16.324f;

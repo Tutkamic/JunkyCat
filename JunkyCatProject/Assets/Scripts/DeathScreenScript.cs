@@ -9,9 +9,11 @@ public class DeathScreenScript : MonoBehaviour
 {
     [SerializeField] PlayerScript playerScript;
     [SerializeField] GameObject deathScreen;
-    [SerializeField] GameObject newHighscoreText;
+    [SerializeField] public GameObject newHighscoreText;
 
     public TextMeshProUGUI finalScoreText;
+    public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI kuwetaText;
 
     private void OnEnable()
     {
@@ -45,8 +47,10 @@ public class DeathScreenScript : MonoBehaviour
     { 
         deathScreen.gameObject.SetActive(true);
         finalScoreText.text = GameManagerScript.instance.finalScore.ToString();
+        gameOverText.text = "GAME OVER";
+        kuwetaText.text = "Nie ogarniam tej kuwety";
 
-        if(GameManagerScript.instance.finalScore > GameManagerScript.instance.highscore)
+        if (GameManagerScript.instance.finalScore > GameManagerScript.instance.highscore)
         {
             GameManagerScript.instance.highscore = GameManagerScript.instance.finalScore;
             GameManagerScript.instance.highscorePlayerName = GameManagerScript.instance.playerName;

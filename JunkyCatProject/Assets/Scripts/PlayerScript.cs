@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject deathScreen;
 
     public bool catHasDied;
+    public bool catFinish;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         countDownScript = FindObjectOfType<CountDownScript>();
         scoreScript = FindObjectOfType<ScoreScript>();
         catHasDied = false;
+        catFinish = false;
     }
 
     // Start is called before the first frame update
@@ -71,9 +73,11 @@ public class PlayerScript : MonoBehaviour
 
     public void CatDead()
     {
-        if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfLife == true)
+        if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfLife == true || catFinish == true)
         {
-            playerSoundManagerScript.PlaySound(playerSoundManagerScript.hitSound);
+            if (playerMovementScript.catOutOfMap == true || playerStatsScript.catOutOfLife == true)
+                playerSoundManagerScript.PlaySound(playerSoundManagerScript.hitSound);
+            
             catHasDied = true;
 
             if (CatDied != null)

@@ -11,6 +11,7 @@ public class ScoreScript : MonoBehaviour
     public int energyScore = 0;
     public GameObject cat;
     [SerializeField] PlayerScript playerScript;
+    [SerializeField] DeathScreenScript deathScreenScript;
 
 
     private void Awake()

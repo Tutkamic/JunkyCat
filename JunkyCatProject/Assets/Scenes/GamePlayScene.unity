@@ -311,6 +311,8 @@ MonoBehaviour:
   deathScreen: {fileID: 1453279014}
   newHighscoreText: {fileID: 1866242896}
   finalScoreText: {fileID: 222733795}
+  gameOverText: {fileID: 227941581}
+  kuwetaText: {fileID: 610500757}
 --- !u!1 &156567630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1403,7 @@ MonoBehaviour:
   energyScore: 0
   cat: {fileID: 1464493176}
   playerScript: {fileID: 0}
+  deathScreenScript: {fileID: 143683575}
 --- !u!1 &524456725
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +3853,8 @@ MonoBehaviour:
   - {fileID: 2203514405442836441, guid: 2191c0c97a167874aafd4596dff41203, type: 3}
   - {fileID: 6748954517646132739, guid: 4a33737de48cd3d409e01ec2063b52f3, type: 3}
   - {fileID: 2203514405442836441, guid: f8b26d065b693dd4889726724e4c3854, type: 3}
+  finishMap: {fileID: 3481440260781359317, guid: 2269b132971ff3042a479e99214fb169,
+    type: 3}
   level: 1
   levelSpeedFactor: 1
 --- !u!4 &1682980262
