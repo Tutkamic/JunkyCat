@@ -51,7 +51,7 @@ public class MouseScript : MonoBehaviour
         distance = Vector3.Distance(cat.transform.position, this.transform.position);
         if (distance < 2.5 && isGrounded == true)
         {
-             if (rb.velocity.magnitude < 1)
+             if (rb.velocity.magnitude < 0.7f)
                 rb.AddForce((this.transform.position - cat.transform.position), ForceMode.VelocityChange);
 
 
