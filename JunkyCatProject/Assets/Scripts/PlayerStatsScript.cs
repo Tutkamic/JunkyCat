@@ -139,6 +139,9 @@ public class PlayerStatsScript : MonoBehaviour
     private void StartStats()
     {
         pauseStats = false;
+        isBoost = false;
+        boostSphere.SetActive(false);
+        playerScript.playerCollisionScript.isImmune = false;
     }
 
     IEnumerator EnergyBoost()
