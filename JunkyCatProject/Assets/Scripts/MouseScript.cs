@@ -8,7 +8,6 @@ public class MouseScript : MonoBehaviour
     private GameObject cat;
     private Rigidbody rb;
     private float distance;
-    bool isInRange = false;
     bool isGrounded;
     private float distanceToGround = 0.208f;
 
@@ -30,32 +29,9 @@ public class MouseScript : MonoBehaviour
     private void FixedUpdate()
     {
         GorundedCheck();
-        CatDistance();
+        MouseRunning();
     }
 
-    void CatDistance()
-    {
-        distance = Vector3.Distance(cat.transform.position, this.transform.position);
-        if (distance < 2.5 && isInRange == false && isGrounded == true)
-        {
-            isInRange = true;
-            StartCoroutine(MouseRun());
-        }
-    }
-
-    IEnumerator MouseRun()
-    {
-        while (distance < 2.5 && isGrounded == true)
-        {
-            if (rb.velocity.magnitude < 1)
-                rb.AddForce(this.transform.position - cat.transform.position, ForceMode.Impulse);
-            else rb.velocity = Vector3.zero;
-
-            rb.rotation = Quaternion.LookRotation(this.transform.position - cat.transform.position);
-            yield return null;
-        }
-        isInRange = false;
-    }
 
     private void GorundedCheck()
     {
@@ -67,6 +43,19 @@ public class MouseScript : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+    }
+
+    private void MouseRunning()
+    {
+        distance = Vector3.Distance(cat.transform.position, this.transform.position);
+        if (distance < 2.5 && isGrounded == true)
+        {
+             if (rb.velocity.magnitude < 1)
+                rb.AddForce((this.transform.position - cat.transform.position), ForceMode.VelocityChange);
+
+
+            rb.rotation = Quaternion.LookRotation(this.transform.position - cat.transform.position);
         }
     }
 }

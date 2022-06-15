@@ -19,4 +19,6 @@ public class CameraScript : MonoBehaviour
     {
             transform.position += new Vector3(0f, 0f, playerScript.playerInputScript.catAndCamMoveSpeed * camConstantSpeed * playerScript.playerMovementScript.forwardSpeedFactor * playerScript.playerMovementScript.levelFactor) * Time.fixedDeltaTime;
     }
+
+
 }

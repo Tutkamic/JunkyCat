@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 4557
+  controlID: 4044
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -57,12 +57,12 @@ MonoBehaviour:
   m_SerializedViewNames:
   - UnityEditor.GameView
   m_SerializedViewValues:
-  - C:\Users\tutka\JunkyCat\JunkyCatProject\Library\PlayModeViewStates\8166831f2d27e064fa650b1a27abe260
+  - C:\Users\tutka\JunkyCat\JunkyCatProject\Library\PlayModeViewStates\9ded0af4791375148845db5982b0b3d1
   m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 1536, y: 2048}
+  m_TargetSize: {x: 1080, y: 2340}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -73,16 +73,16 @@ MonoBehaviour:
     controlPanelWidth: 0
     controlPanelFoldoutKeys:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
-    controlPanelFoldoutValues: 00
+    controlPanelFoldoutValues: 01
     pluginNames:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 10
-    fitToScreenEnabled: 0
+    scale: 35
+    fitToScreenEnabled: 1
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
-    friendlyName: Apple iPad Mini 2
+    friendlyName: Xiaomi Redmi Note 7
     networkReachability: 1
     systemLanguage: 10
 --- !u!114 &3
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 4558
+  controlID: 4045
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 4559
+  controlID: 4046
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 1
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: -136, y: -216}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
@@ -379,7 +379,7 @@ MonoBehaviour:
       index: 10
       layout: 4
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -388,9 +388,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.5839213, y: -1.0118452, z: -1.4445167}
+    m_Target: {x: -0.26458415, y: 1.4581673, z: -5.5211806}
     speed: 2
-    m_Value: {x: 0.5839213, y: -1.0118452, z: -1.4445167}
+    m_Value: {x: -0.26458415, y: 1.4581673, z: -5.5211806}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -437,13 +437,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.39242524, y: 0.03227097, z: -0.013821099, w: 0.9191903}
+    m_Target: {x: 0.23920518, y: 0.29080302, z: -0.07542998, w: 0.9234137}
     speed: 2
-    m_Value: {x: 0.39237642, y: 0.03364735, z: -0.014408706, w: 0.91907614}
+    m_Value: {x: -0.2392052, y: -0.29080305, z: 0.07542998, w: -0.92341375}
   m_Size:
-    m_Target: 4.4517803
+    m_Target: 2.1549747
     speed: 2
-    m_Value: 4.260077
+    m_Value: 2.1549747
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -561,8 +561,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scenes
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -577,7 +576,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b4bb0000
     m_LastClickedID: 48052
-    m_ExpandedIDs: ffffffff000000001a680000be680000aa3f0500ac3f0500ae3f0500b03f0500b23f0500b43f0500b63f0500b83f0500ba3f0500bc3f0500be3f0500c03f0500c23f0500c43f0500c63f0500c83f0500ca3f0500cc3f0500ce3f0500d03f0500d23f0500
+    m_ExpandedIDs: ffffffff0000000020680000c66800008e79050090790500927905009479050096790500987905009a7905009c7905009e790500a0790500a2790500a4790500a6790500a8790500aa790500ac790500ae790500b0790500b2790500b4790500b6790500
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -602,10 +601,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 816}
-    m_SelectedIDs: 3ea00500
+    scrollPos: {x: 0, y: 700}
+    m_SelectedIDs: b2950500
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000001a680000be680000aa3f0500ac3f0500ae3f0500b03f0500b23f0500b43f0500b63f0500b83f0500ba3f0500bc3f0500be3f0500c03f0500c23f0500c43f0500c63f0500c83f0500ca3f0500cc3f0500ce3f0500d03f0500d23f0500
+    m_ExpandedIDs: ffffffff0000000020680000c66800008e79050090790500927905009479050096790500987905009a7905009c7905009e790500a0790500a2790500a4790500a6790500a8790500aa790500ac790500ae790500b0790500b2790500b4790500b6790500
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -630,8 +629,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3ea00500
-    m_LastClickedInstanceID: 368702
+    m_SelectedInstanceIDs: b2950500
+    m_LastClickedInstanceID: 366002
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -685,7 +684,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 4602
+  controlID: 4109
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -744,9 +743,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3ea00500
-      m_LastClickedID: 368702
-      m_ExpandedIDs: 5870feffbc81feffc2a1feffaaa2feffa0b8feff90c3feff8acefeffdcd4feffc8d5feff9cedfeff90f8feff8e03ffffd227ffffb828ffff8a40ffff7e4bffff7c56ffffd6e0ffff34fbffffd49f0500
+      m_SelectedIDs: b2950500
+      m_LastClickedID: 366002
+      m_ExpandedIDs: b4befeff9abffeff44d7feff34e2feff30edfeff34fbffff709e0500
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -881,8 +880,9 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 0}
+  m_InstanceIDsLockedBeforeSerialization: b2950500
   m_PreviewResizer:
     m_CachedPref: -368
     m_ControlHash: -371814159
@@ -892,7 +892,7 @@ MonoBehaviour:
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &17
 MonoBehaviour:

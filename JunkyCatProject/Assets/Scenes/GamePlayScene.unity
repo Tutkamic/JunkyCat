@@ -350,6 +350,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 540}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &189634341 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 148313889259077374, guid: f7a69f9f8739e864badd300973d37d41,
+    type: 3}
+  m_PrefabInstance: {fileID: 6879707759133745380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198318723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,6 +4560,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 148313889259077374, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1889846869110182185, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
       propertyPath: groundText
@@ -4649,6 +4660,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 4073765686032013125, guid: f7a69f9f8739e864badd300973d37d41,
+        type: 3}
+      propertyPath: lifeSound
+      value: 
+      objectReference: {fileID: 189634341}
     - target: {fileID: 4073765686032013125, guid: f7a69f9f8739e864badd300973d37d41,
         type: 3}
       propertyPath: boostSound

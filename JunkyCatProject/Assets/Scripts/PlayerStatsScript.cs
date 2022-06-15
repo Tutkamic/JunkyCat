@@ -75,7 +75,6 @@ public class PlayerStatsScript : MonoBehaviour
     public void EnergyAdd()
     {
         playerScript.scoreScript.energyScore += 10;
-        playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
         energy += kocimietkaAdd;
 
         if (energy >= maxEnergy)
@@ -85,8 +84,15 @@ public class PlayerStatsScript : MonoBehaviour
             {
                 life++;
                 playerScript.sliderLifeScript.SetSliderLifeValue(playerScript.sliderLifeScript.LifeSlider, life);
+                playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.lifeSound);
             }
         }
+        else
+        {
+            playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
+        }
+
+
         playerScript.sliderScript.SetSliderValue(playerScript.sliderScript.EnergySlider, energy);
     }
 

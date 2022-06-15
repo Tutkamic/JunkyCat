@@ -31,7 +31,6 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             playerScript.playerStatsScript.MouseAdd();
-            playerScript.playerSoundManagerScript.PlaySound(playerScript.playerSoundManagerScript.addSound);
         }
     }
 
