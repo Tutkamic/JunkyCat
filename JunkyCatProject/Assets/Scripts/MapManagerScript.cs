@@ -12,7 +12,7 @@ public class MapManagerScript : MonoBehaviour
     public GameObject finishMap;
 
     public int level = 1;
-    public float levelSpeedFactor = 1;
+    public float levelSpeedFactor = 0.8f;
 
     private Vector3 spawnMapPosition;
 
@@ -43,23 +43,23 @@ public class MapManagerScript : MonoBehaviour
                 break;
             case 2:
                 InstantiateMap(easyMaps);
-                levelSpeedFactor = 1;
+                levelSpeedFactor = 0.8f;
                 break;
             case 3:
                 InstantiateMap(middleMaps);
-                levelSpeedFactor = 2;
+                levelSpeedFactor = 0.8f;
                 break;
             case 4:
                 InstantiateMap(hardMaps);
-                levelSpeedFactor = 2;
+                levelSpeedFactor = 0.8f;
                 break;
             case 5:
                 InstantiateMap(impossibleMaps);
-                levelSpeedFactor = 2;
+                levelSpeedFactor = 0.8f;
                 break;
             case 6:
                 Instantiate(finishMap, spawnMapPosition, Quaternion.identity);
-                levelSpeedFactor = 1;
+                levelSpeedFactor = 0.8f;
                 break;
         }
         spawnMapPosition.z += 16.324f;
