@@ -51,11 +51,11 @@ public class MapManagerScript : MonoBehaviour
                 break;
             case 4:
                 InstantiateMap(hardMaps);
-                levelSpeedFactor = 3;
+                levelSpeedFactor = 2;
                 break;
             case 5:
                 InstantiateMap(impossibleMaps);
-                levelSpeedFactor = 3;
+                levelSpeedFactor = 2;
                 break;
             case 6:
                 Instantiate(finishMap, spawnMapPosition, Quaternion.identity);
